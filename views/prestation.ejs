@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Nos prestations</title>
+  </head>
+  <body>
+    <%- include('../views/components/header.ejs') %>
+    <main>
+      <section>
+        <h2>Nos prestations</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+          iusto, illum, quia quam inventore aliquam soluta dolore omnis quod
+          maxime, eligendi voluptates autem enim? Quae atque doloremque ipsam
+          saepe possimus.
+        </p>
+        <div class="catContainer">
+          <article>
+            <h3>Nos Coupes Enfants</h3>
+            <p>
+              Découvrez notre gamme de coiffures spécialement conçues pour les
+              plus jeunes chez Cécilia coiffure. Chez nous, chaque enfant est
+              une étoile, et nous sommes là pour leur offrir des coupes
+              amusantes, créatives et adaptées à leur style unique. Notre équipe
+              de coiffeurs expérimentés sait comment mettre les enfants à
+              l'aise, pour que la coupe de cheveux devienne un moment de
+              plaisir.
+            </p>
+            <button><a href="/enfant">En Savoir plus</a></button>
+          </article>
+          <article>
+            <h3>Nos Coupes Hommes</h3>
+            <p>
+              Messieurs, nous savons que votre style est important. De coupes
+              modernes à des styles classiques, nous sommes experts dans la
+              création de coiffures masculines qui reflètent votre personnalité.
+              Profitez d'une coupe de cheveux de qualité et d'un service
+              attentionné. Confiez votre coiffure à Cécilia coiffure, prenez
+              rendez-vous dès aujourd'hui !
+            </p>
+            <button><a href="/homme">En Savoir plus</a></button>
+          </article>
+          <article>
+            <h3>Nos Coupes femmes</h3>
+            <p>
+              Pour nos clientes exigeantes, nous offrons un éventail de services
+              de coiffure, des coupes tendance aux couleurs éclatantes, en
+              passant par les coiffures élégantes pour des occasions spéciales.
+              Notre équipe de coiffeurs talentueux est là pour mettre en valeur
+              votre beauté naturelle et vous offrir des conseils personnalisés.
+            </p>
+            <button><a href="/femme">En Savoir plus</a></button>
+          </article>
+        </div>
+      </section>
+    </main>
+    <%-include('../views/components/footer.ejs') %>
+    <script src="/scripts/burger.js"></script>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>

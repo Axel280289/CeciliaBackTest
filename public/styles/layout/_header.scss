@@ -1,0 +1,154 @@
+/* Styles pour le menu burger */
+header {
+  background: linear-gradient(#111010ec, #1010139c);
+  height: 73vh;
+}
+
+header h1 {
+  color: $color2;
+  font-size: 3.1rem;
+  text-align: center;
+  margin-top: 35px;
+}
+
+header p {
+  color: $color1;
+  text-align: center;
+  margin-top: 35px;
+  max-width: 85%;
+  margin: 35px auto 0;
+  font-size: 1.4rem;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+.logo img {
+  border-radius: 50%;
+  width: 50%;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+.menu {
+  display: none;
+}
+.menu ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+a {
+  color: $color1;
+  text-decoration: none;
+}
+li a:hover {
+  color: $color2;
+  scale: 1.2;
+}
+a:visited {
+  color: $color1;
+}
+.menu.active {
+  display: block;
+}
+.menu-icon {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin: 5px 0 10px;
+}
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: $color2;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+.menu-icon.active #bar1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.menu-icon.active #bar2 {
+  opacity: 0;
+}
+.menu-icon.active #bar3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.navGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+// --------media querie header-------- //
+@media screen and (min-width: 300px) {
+  .menu ul {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 370px) {
+  header {
+    height: 65vh;
+  }
+  .menu ul {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 900px) {
+  .menu {
+    display: block;
+  }
+  .menu-icon {
+    display: none;
+  }
+
+  .logo img {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .menu ul {
+    font-size: 1.3rem;
+    gap: 50px;
+  }
+  header h1 {
+    color: $color2;
+    font-size: 3.3rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+  header {
+    height: 65vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header h1 {
+    color: $color2;
+    font-size: 5rem;
+    margin-top: 40px;
+  }
+
+  header {
+    height: 70vh;
+  }
+
+  header p {
+    color: $color1;
+    text-align: center;
+    margin-top: 35px;
+    max-width: 85%;
+    margin: 40px auto 0;
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1750px) {
+  header {
+    height: 60vh;
+  }
+}

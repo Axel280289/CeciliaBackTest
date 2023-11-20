@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../components/header.ejs') %>
+    <main class="mainDisconnect">
+      <h1>Déconnexion</h1>
+      <form action="/logout/disconnect" method="POST">
+        <a href="/">Annuler</a>
+        <button>Confirmer</button>
+      </form>
+    </main>
+    <%- include('../components/footer.ejs') %>
+    <script src="/scripts/burger.js"></script>
+  </body>
+</html>

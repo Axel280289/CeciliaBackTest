@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../components/header.ejs') %>
+    <section class="dashboard">
+      <h2>Utilisateur</h2>
+      <a href="/users">Liste des utilisateurs</a>
+      <a href="/users/create">Créer un utilisateur</a>
+    </section>
+    <section class="dashboard">
+      <h2>Produits</h2>
+      <a href="/products">liste produits</a>
+      <a href="/products/create">Créer un produit</a>
+    </section>
+    <%- include('../components/footer.ejs') %>
+    <script src="/scripts/burger.js"></script>
+  </body>
+</html>

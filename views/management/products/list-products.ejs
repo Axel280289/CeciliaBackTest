@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../../components/header.ejs') %>
+    <main class="listUser">
+      <h2>Liste des Produits</h2>
+      <% if(successDeleteProduct) { %>
+      <p class="succes"><%= successDeleteProduct %></p>
+      <% } %> <% if(products) { %>
+      <table class="table-responsive">
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Contenance</th>
+            <th>Description</th>
+            <th>action Modifier</th>
+            <th>action Supprimer</th>
+          </tr>
+        </thead>
+        <% products.forEach(product => { %>
+        <tr>
+          <td data-label="Titre">
+            <a href="/products/<%= product._id %>"> <%= product.titre %> </a>
+          </td>
+          <td data-label="contenance"><%= product.contenance %></td>
+          <td data-label="description"><%= product.description %></td>
+          <td data-label="Action">
+            <a href="/products/<%= product._id %>/update">Modifier</a>
+          </td>
+          <td data-label="Action">
+            <a href="/products/<%= product._id %>/delete">Supprimer</a>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+      <% } %>
+    </main>
+    <%- include('../../components/footer.ejs') %>
+    <script src="/scripts/burger.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<header>
+  <nav>
+    <div class="navGrid">
+      <div class="logo">
+        <a href="/"><img src="/images/Logo.webp" alt="Logo" /></a>
+      </div>
+      <div class="menu-icon" id="menuIcon">
+        <div class="bar" id="bar1"></div>
+        <div class="bar" id="bar2"></div>
+        <div class="bar" id="bar3"></div>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li><a href="/prestation">Nos prestations</a></li>
+          <li><a href="/produit">Nos produits</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <% if(!isConnected) { %>
+          <!-- Si l'utilisateur est connecté il peut accéder aux pages Admin et Déconnexion -->
+          <% } else { %>
+          <li><a href="/admin">Admin</a></li>
+          <li><a href="/logout">Déconnexion</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+    <h1>Cécilia Coiffure</h1>
+    <p>“La plus belle couleur au monde est celle qui vous va bien “</p>
+  </nav>
+</header>

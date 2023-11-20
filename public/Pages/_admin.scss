@@ -1,0 +1,39 @@
+.dashboard {
+  background: linear-gradient(#1a1818f5, #1414189f);
+  padding: 25px 25px;
+  border-radius: 25px;
+  @include marginCenter;
+  gap: 5px;
+  margin-block: 25px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+}
+
+.dashboard h2 {
+  text-align: center;
+  color: $color2;
+  font-size: 2rem;
+}
+.dashboard h3 {
+  text-align: center;
+  color: $color2;
+}
+
+.dashboard a {
+  text-align: center;
+  color: $color1;
+  font-weight: 600;
+}
+
+.dashboard form {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard {
+    width: 300px;
+  }
+}

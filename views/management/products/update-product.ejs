@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../../components/header.ejs') %> <% if(successUpdateProduct) {
+    %>
+    <p class="succes"><%= successUpdateProduct %></p>
+    <% } %>
+
+    <main class="create">
+      <h2>Mise à jour d'un utilisateur</h2>
+      <form
+        action="/products/<%= detailsProduct._id %>/update?_method=PUT"
+        method="POST"
+      >
+        <div>
+          <label for="titre">Titre</label>
+          <input
+            type="text"
+            id="titre"
+            name="titre"
+            value="<%= detailsProduct ? detailsProduct.titre : '' %>"
+          />
+        </div>
+        <div>
+          <label for="description">Description</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value="<%= detailsProduct ? detailsProduct.description : '' %>"
+          />
+        </div>
+        <div>
+          <label for="contenance">Contenance</label>
+          <input
+            type="txt"
+            id="contenance"
+            name="contenance"
+            value="<%= detailsProduct ? detailsProduct.contenance : '' %>"
+          />
+        </div>
+        <!-- <div>
+        <label for="photo">Photo</label>
+        <input type="image" id="photo" name="photo" />
+      </div> -->
+        <div>
+          <label for="etape1">Etape1</label>
+          <input
+            type="text"
+            id="etape1"
+            name="etape1"
+            value="<%= detailsProduct ? detailsProduct.etape1 : '' %>"
+          />
+        </div>
+        <div>
+          <label for="etape2">Etape2</label>
+          <input
+            type="text"
+            id="etape2"
+            name="etape2"
+            value="<%= detailsProduct ? detailsProduct.etape2 : '' %>"
+          />
+        </div>
+        <div>
+          <label for="etape3">Etape3</label>
+          <input
+            type="text"
+            id="etape3"
+            name="etape3"
+            value="<%= detailsProduct ? detailsProduct.etape3 : '' %>"
+          />
+        </div>
+        <div>
+          <label for="etape4">Etape4</label>
+          <input
+            type="text"
+            id="etape4"
+            name="etape4"
+            value="<%= detailsProduct ? detailsProduct.etape4 : '' %>"
+          />
+        </div>
+        <div>
+          <label for="etape5">Etape5</label>
+          <input
+            type="text"
+            id="etape5"
+            name="etape5"
+            value="<%= detailsProduct ? detailsProduct.etape5 : '' %>"
+          />
+        </div>
+        <div>
+          <label for="precaution">Précaution utilisation</label>
+          <input
+            type="text"
+            id="precaution"
+            name="precaution"
+            value="<%= detailsProduct ? detailsProduct.precaution : '' %>"
+          />
+        </div>
+        <div>
+          <label for="benefice">Bénéfice utilisation</label>
+          <input
+            type="text"
+            id="benefice"
+            name="benefice"
+            value="<%= detailsProduct ? detailsProduct.benefice : '' %>"
+          />
+        </div>
+        <div>
+          <label for="favoris">Favoris</label>
+          <select
+            id="favoris"
+            name="favoris"
+            value="<%= detailsProduct ? detailsProduct.favoris : '' %>"
+          >
+            <option value="1">Oui</option>
+            <option value="2">Non</option>
+          </select>
+        </div>
+
+        <button>Modifier</button>
+      </form>
+    </main>
+    <%- include('../../components/footer.ejs') %>
+    <script src="/scripts/burger.js"></script>
+  </body>
+</html>

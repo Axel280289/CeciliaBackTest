@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../../components/header.ejs') %>
+    <main class="listUser">
+      <h2>Liste des utilisateurs</h2>
+      <% if(successDeleteUser) { %>
+      <p><%= successDeleteUser %></p>
+      <% } %> <% if(users) { %>
+      <table class="table-responsive">
+        <thead>
+          <tr>
+            <th>Nom et Prénom</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Actions Modifier</th>
+            <th>Actions Supprimer</th>
+          </tr>
+        </thead>
+        <% users.forEach(user => { %>
+        <tr>
+          <td data-label="Nom">
+            <a href="/users/<%= user._id %>">
+              <%= user.lastname %> <%= user.firstname %>
+            </a>
+          </td>
+          <td data-label="Email"><%= user.email %></td>
+          <td data-label="Adresse">
+            <%= user.address.street %> <br />
+            <%= user.address.zipcode %> <%= user.address.city %>
+          </td>
+          <td data-label="Action">
+            <a href="/users/<%= user._id %>/update">Modifier</a>
+          </td>
+          <td data-label="Action">
+            <a href="/users/<%= user._id %>/delete">Supprimer</a>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+      <% } %>
+    </main>
+    <%- include('../../components/footer.ejs') %>
+    <script src="/scripts/burger.js"></script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+// Catégorie de produit //
+
+.catContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  max-width: 85%;
+  margin: 0 auto;
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.catContainer article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 400px;
+  gap: 5px;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.catContainer article h3 {
+  color: $color2;
+  font-size: 1.5rem;
+  text-align: center;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  border-radius: 25px;
+}
+
+.catContainer p {
+  color: $color1;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.catContainer article h3 {
+  color: $color2;
+  font-size: 1.5rem;
+  text-align: center;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  border-radius: 25px;
+}
+
+.catContainer p {
+  color: $color1;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.catContainer article:nth-of-type(1) {
+  background: url(/images/coupes-enfants.webp) center no-repeat;
+  background-size: cover;
+}
+.catContainer article:nth-of-type(2) {
+  background: url(/images/coupesHommes.webp) center no-repeat;
+  background-size: cover;
+}
+.catContainer article:nth-of-type(3) {
+  background: url(/images/femme.webp) center no-repeat;
+  background-size: cover;
+}
+
+//Media queries///
+
+@media screen and (min-width: 500px) {
+  .catContainer article {
+    height: 350px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .catContainer article {
+    width: 520px;
+  }
+}
+
+@media screen and (min-width: 1010px) {
+  .catContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+  .catContainer article {
+    width: 420px;
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  .catContainer article {
+    width: 550px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .catContainer article {
+    width: 700px;
+    height: 400px;
+  }
+  .catContainer article p {
+    width: 75%;
+    @include marginCenter;
+    text-align: center;
+  }
+}
+
+///
+@media screen and (min-width: 1010px) {
+  .catContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 85%;
+    margin-top: 50px;
+  }
+
+  .catContainer article:nth-child(3) {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  .catContainer article:nth-child(3) {
+    height: 100%;
+  }
+}

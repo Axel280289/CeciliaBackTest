@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../../components/header.ejs') %>
+    <section class="dashboard">
+      <h2>
+        Suppression de <%= detailsUser.lastname %> <%= detailsUser.firstname %>
+      </h2>
+      <form
+        action="/users/<%= detailsUser._id %>/delete?_method=DELETE"
+        method="POST"
+      >
+        <a href="/users">Annuler</a>
+        <button>Confirmer</button>
+      </form>
+    </section>
+    <%- include('../../components/footer.ejs') %>
+    <script src="/scripts/burger.js"></script>
+  </body>
+</html>

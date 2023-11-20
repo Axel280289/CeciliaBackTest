@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include('../../components/header.ejs') %> <% if (successCreateProduct) {
+    %>
+    <div class="succes" role="alert"><%= successCreateProduct %></div>
+    <% } %>
+    <main class="create">
+      <h2>Création d'un Produit</h2>
+      <form
+        action="/products/create/add"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div>
+          <label for="titre">Titre</label>
+          <input type="text" id="titre" name="titre" />
+        </div>
+        <div>
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" />
+        </div>
+        <div>
+          <label for="contenance">Contenance</label>
+          <input type="txt" id="contenance" name="contenance" />
+        </div>
+        <div>
+          <label for="etape1">Etape1</label>
+          <input type="text" id="etape1" name="etape1" />
+        </div>
+        <div>
+          <label for="etape2">Etape2</label>
+          <input type="text" id="etape2" name="etape2" />
+        </div>
+        <div>
+          <label for="etape3">Etape3</label>
+          <input type="text" id="etape3" name="etape3" />
+        </div>
+        <div>
+          <label for="etape4">Etape4</label>
+          <input type="text" id="etape4" name="etape4" />
+        </div>
+        <div>
+          <label for="etape5">Etape5</label>
+          <input type="text" id="etape5" name="etape5" />
+        </div>
+        <div>
+          <label for="precaution">Précaution utilisation</label>
+          <input type="text" id="precaution" name="precaution" />
+        </div>
+        <div>
+          <label for="benefice">Bénéfice utilisation</label>
+          <input type="text" id="benefice" name="benefice" />
+        </div>
+        <div>
+          <label for="favoris">Favoris</label>
+          <select id="favoris" name="favoris">
+            <option value="1">Oui</option>
+            <option value="2">Non</option>
+          </select>
+        </div>
+        <div>
+          <label for="categorie">Catégories</label>
+          <select id="categorie" name="categorie">
+            <option value="1">Shampoings</option>
+            <option value="2">Aprés-Shampoings</option>
+            <option value="2">Huiles</option>
+            <option value="2">Soins</option>
+          </select>
+        </div>
+        <div>
+          <label for="photo">Photo du produit</label>
+          <input type="file" id="photo" name="photo" accept="image/*" />
+        </div>
+
+        <button>Créer</button>
+      </form>
+    </main>
+    <%- include('../../components/footer.ejs') %>
+    <script src="/scripts/burger.js"></script>
+  </body>
+</html>

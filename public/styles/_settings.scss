@@ -1,0 +1,24 @@
+$font1: Philosopher, sans-serif;
+$font2: Dosis, sans-serif;
+
+$white: #f5f5f5;
+$black: #3e3b3b;
+$marron: #3f2305;
+$color1: #fdf9ec;
+$color2: #dfd7bf;
+
+@mixin marginCenter {
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(/images/Salon-de-coiffure.webp) no-repeat center;
+  background-size: cover;
+  height: 100%;
+}

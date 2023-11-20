@@ -1,0 +1,95 @@
+.listUser {
+  background: linear-gradient(#1a1818f5, #1414189f);
+  width: 90%;
+  padding: 25px;
+  border-radius: 25px;
+  @include marginCenter;
+  margin-block: 20px;
+}
+
+.table-responsive {
+  display: flex;
+  justify-content: center;
+}
+.listUser h2 {
+  text-align: center;
+  color: $color2;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+thead {
+  display: none;
+}
+
+td,
+th {
+  border: 2px solid $color2;
+  padding: 5px;
+  background: black;
+}
+th {
+  color: $color2;
+}
+
+td {
+  color: $color1;
+  padding-left: 120px;
+  position: relative;
+  background: rgb(170, 170, 170);
+  height: 45px;
+  text-align: center;
+}
+
+th,
+tr,
+td {
+  display: block;
+  width: 250px;
+  overflow-wrap: break-word;
+}
+
+td::before {
+  padding: 10px;
+  content: attr(data-label);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  background: black;
+}
+
+tr {
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1050px) {
+  td::before {
+    display: none;
+  }
+
+  td,
+  th,
+  tr {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-wrap: break-word;
+    font-size: 0.8rem;
+  }
+
+  thead,
+  tbody {
+    display: block;
+  }
+  .table-responsive {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  tr {
+    margin-bottom: 0;
+  }
+}

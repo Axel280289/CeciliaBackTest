@@ -1,0 +1,97 @@
+.container-accueil {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 92%;
+  margin: 0 auto;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.container-accueil article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 25px;
+  height: 360px;
+  border: 2px solid $marron;
+}
+
+.container-accueil article p {
+  max-width: 95%;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  padding: 10px 25px;
+  border-radius: 25px;
+  color: $color1;
+}
+.container-accueil article h2 {
+  color: $color2;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  padding: 10px 25px;
+  border-radius: 25px;
+}
+
+.container-accueil article:nth-of-type(1) {
+  background: url(/images/nouveauDecor.webp) center no-repeat;
+  background-size: cover;
+}
+.container-accueil article:nth-child(2) {
+  background: url(/images/coiffureP.webp) center no-repeat;
+  background-size: cover;
+}
+.container-accueil article:nth-child(3) {
+  background: url(/images/KerastaseBG.webp) center no-repeat;
+  background-size: cover;
+}
+.container-accueil article:nth-child(4) {
+  background: url(/images/contacter-nous.webp) center no-repeat;
+  background-size: cover;
+}
+
+.hidden-media {
+  display: none;
+}
+
+// --------media querie accueil-------- //
+
+@media screen and (min-width: 900px) {
+  .container-accueil {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    max-width: 92%;
+    margin: 0 auto;
+    gap: 35px;
+    margin-top: 50px;
+    max-width: 80%;
+  }
+  .hidden-media {
+    display: block;
+  }
+  .hidden-media1 {
+    display: none;
+  }
+}
+@media screen and (min-width: 900px) {
+  .container-accueil article {
+    height: 450px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container-accueil article p {
+    max-width: 80%;
+    font-size: 1rem;
+    line-height: 18px;
+    padding: 25px;
+  }
+
+  .container-accueil article {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1380px) {
+  .container-accueil article p {
+    line-height: 25px;
+  }
+}

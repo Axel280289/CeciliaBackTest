@@ -206,6 +206,14 @@ button a:visited {
   color: black;
 }
 
+button a {
+  color: black;
+}
+
+button a:hover {
+  color: #fdf9ec;
+}
+
 button:hover {
   scale: 1.2;
   background-color: #3f2305;
@@ -775,13 +783,12 @@ form button {
   color: #dfd7bf;
   font-size: 2rem;
   text-align: center;
-  margin: 0 auto;
+  margin: 50px auto;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(26, 24, 24, 0.9607843137)), to(rgba(20, 20, 24, 0.6235294118)));
   background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
   max-width: 85%;
   padding: 10px 15px;
   border-radius: 25px;
-  margin-block: 50px;
 }
 
 .topProduit h3 {
@@ -862,22 +869,22 @@ form button {
 }
 
 .catProduitContainer article:nth-of-type(1) {
-  background: url(/images/contacter-nous.webp) center no-repeat;
+  background: url(/images/shampoing.webp) center no-repeat;
   background-size: cover;
 }
 
 .catProduitContainer article:nth-of-type(2) {
-  background: url(/images/contacter-nous.webp) center no-repeat;
+  background: url(/images/apresShampoings.webp) center no-repeat;
   background-size: cover;
 }
 
 .catProduitContainer article:nth-of-type(3) {
-  background: url(/images/contacter-nous.webp) center no-repeat;
+  background: url(/images/nosHuiles.webp) center no-repeat;
   background-size: cover;
 }
 
 .catProduitContainer article:nth-of-type(4) {
-  background: url(/images/contacter-nous.webp) center no-repeat;
+  background: url(/images/soins.webp) center no-repeat;
   background-size: cover;
 }
 
@@ -976,6 +983,29 @@ form button {
   gap: 5px;
   padding: 15px;
   border-radius: 25px;
+  border: 2px solid #3f2305;
+}
+
+.headerPrestation h2 {
+  text-align: center;
+  color: #dfd7bf;
+  font-size: 2rem;
+  margin: 50px auto;
+  border-radius: 25px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(26, 24, 24, 0.9607843137)), to(rgba(20, 20, 24, 0.6235294118)));
+  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
+  max-width: 85%;
+}
+
+.headerPrestation p {
+  text-align: center;
+  color: #fdf9ec;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(26, 24, 24, 0.9607843137)), to(rgba(20, 20, 24, 0.6235294118)));
+  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
+  max-width: 85%;
+  padding: 10px;
+  border-radius: 25px;
+  margin: 0 auto 50px;
 }
 
 .catContainer article h3 {
@@ -1013,7 +1043,7 @@ form button {
 }
 
 .catContainer article:nth-of-type(1) {
-  background: url(/images/coupes-enfants.webp) center no-repeat;
+  background: url(/images/coupesEnfants.webp) center no-repeat;
   background-size: cover;
 }
 
@@ -1031,6 +1061,9 @@ form button {
   .catContainer article {
     height: 350px;
   }
+  section h2 {
+    max-width: 500px;
+  }
 }
 @media screen and (min-width: 600px) {
   .catContainer article {
@@ -1045,6 +1078,9 @@ form button {
   }
   .catContainer article {
     width: 420px;
+  }
+  .headerPrestation p {
+    max-width: 65%;
   }
 }
 @media screen and (min-width: 1350px) {

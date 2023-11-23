@@ -8,7 +8,66 @@
   </head>
   <body>
     <%- include('./components/header.ejs') %>
-    <h1>Contact</h1>
+    <main class="mainFemme">
+      <section class="headerPrestation">
+        <h2>Coiffure Hommes</h2>
+        <p>
+          Messieurs, nous savons que votre style est important. De coupes
+          modernes à des styles classiques, nous sommes experts dans la création
+          de coiffures masculines qui reflètent votre personnalité. Profitez
+          d'une coupe de cheveux de qualité et d'un service attentionné.
+        </p>
+      </section>
+      <section class="prestationContainer">
+        <div class="photoContainer">
+          <img src="/images/coupesHommes.webp" alt="" />
+        </div>
+        <article class="infoPrestation">
+          <ul>
+            <h3>Coupe de cheveux :</h3>
+            <li>
+              Description : Une coupe de cheveux consiste à rafraîchir ou à
+              changer la longueur et la forme de vos cheveux.
+            </li>
+            <li>
+              Détails : Le coiffeur discutera de vos préférences, de la longueur
+              souhaitée et de la forme de coupe. Ensuite, il coupera et
+              stylisera vos cheveux pour atteindre le look souhaité.
+            </li>
+          </ul>
+
+          <ul>
+            <h3>Coloration des cheveux :</h3>
+            <li>
+              Description : La coloration des cheveux implique de changer la
+              couleur de vos cheveux en utilisant des teintures.
+            </li>
+            <li>
+              Détails : Vous et le coiffeur discuterez de la couleur désirée. Le
+              coiffeur appliquera ensuite la teinture, en veillant à obtenir la
+              nuance souhaitée et à couvrir les cheveux gris si nécessaire.
+            </li>
+          </ul>
+
+          <ul>
+            <h3>Brushing ou mise en plis :</h3>
+            <li>
+              Description : Le brushing consiste à coiffer les cheveux à l'aide
+              d'un sèche-cheveux et d'une brosse pour leur donner forme et
+              volume.
+            </li>
+            <li>
+              Détails : Après le lavage des cheveux, le coiffeur utilisera un
+              sèche-cheveux et une brosse pour coiffer vos cheveux selon vos
+              préférences.
+            </li>
+          </ul>
+        </article>
+        <div class="photoContainer">
+          <img src="/images/hommeGauche.webp" alt="" />
+        </div>
+      </section>
+    </main>
 
     <%- include('./components/footer.ejs') %>
     <script src="/scripts/burger.js"></script>

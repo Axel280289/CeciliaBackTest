@@ -18,6 +18,26 @@
   gap: 5px;
   padding: 15px;
   border-radius: 25px;
+  border: 2px solid $marron;
+}
+.headerPrestation h2 {
+  text-align: center;
+  color: $color2;
+  font-size: 2rem;
+  margin: 50px auto;
+  border-radius: 25px;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  max-width: 85%;
+}
+
+.headerPrestation p {
+  text-align: center;
+  color: $color1;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  max-width: 85%;
+  padding: 10px;
+  border-radius: 25px;
+  margin: 0 auto 50px;
 }
 
 .catContainer article h3 {
@@ -51,7 +71,7 @@
 }
 
 .catContainer article:nth-of-type(1) {
-  background: url(/images/coupes-enfants.webp) center no-repeat;
+  background: url(/images/coupesEnfants.webp) center no-repeat;
   background-size: cover;
 }
 .catContainer article:nth-of-type(2) {
@@ -69,6 +89,9 @@
   .catContainer article {
     height: 350px;
   }
+  section h2 {
+    max-width: 500px;
+  }
 }
 @media screen and (min-width: 600px) {
   .catContainer article {
@@ -84,6 +107,9 @@
   }
   .catContainer article {
     width: 420px;
+  }
+  .headerPrestation p {
+    max-width: 65%;
   }
 }
 

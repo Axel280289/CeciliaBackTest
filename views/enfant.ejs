@@ -8,7 +8,40 @@
   </head>
   <body>
     <%- include('./components/header.ejs') %>
-    <h1>Contact</h1>
+    <main class="mainFemme">
+      <section class="headerPrestation">
+        <h2>Coiffure Enfants</h2>
+        <p>
+          Découvrez notre gamme de coiffures spécialement conçues pour les plus
+          jeunes chez Cécilia coiffure. Chez nous, chaque enfant est une étoile,
+          et nous sommes là pour leur offrir des coupes amusantes, créatives et
+          adaptées à leur style unique.
+        </p>
+      </section>
+      <section class="prestationContainer">
+        <div class="photoContainer">
+          <img src="/images/enfants2.webp" alt="" />
+        </div>
+        <article class="infoPrestation">
+          <ul>
+            <h3>Coupe de cheveux :</h3>
+            <li>
+              Description : Une coupe de cheveux consiste à rafraîchir ou à
+              changer la longueur et la forme de vos cheveux.
+            </li>
+            <li>
+              Détails : Le coiffeur discutera de vos préférences, de la longueur
+              souhaitée et de la forme de coupe. Ensuite, il coupera et
+              stylisera vos cheveux pour atteindre le look souhaité.
+            </li>
+          </ul>
+          </ul>
+        </article>
+        <div class="photoContainer">
+          <img src="/images/coupesEnfants.webp" alt="" />
+        </div>
+      </section>
+    </main>
 
     <%- include('./components/footer.ejs') %>
     <script src="/scripts/burger.js"></script>

@@ -16,7 +16,6 @@ const productSchema = mongoose.Schema({
   precaution: { type: String, required: true, trim: true },
   favoris: { type: String, required: true, trim: true },
   categorie: { type: String, required: true, trim: true },
-  // photo: { type: String, required: true, trim: true },
 });
 
 productSchema.plugin(uniqueValidator);

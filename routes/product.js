@@ -17,12 +17,7 @@ const { verifUser } = require("../middlewares/verifUser");
 
 // Créer un produit (get => afficher la page, post => validation formulaire de création)
 router.get("/products/create", authMiddleware, verifUser, addProduct);
-router.post(
-  "/products/create/add",
-  authMiddleware,
-  verifUser,
-  createProduct,
-);
+router.post("/products/create/add", authMiddleware, verifUser, createProduct);
 
 // Liste des produits (get => afficher la page)
 router.get("/products", authMiddleware, verifUser, getProducts);

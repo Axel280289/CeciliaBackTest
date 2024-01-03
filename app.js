@@ -11,8 +11,6 @@ const multer = require("multer");
 
 dotenv.config(); // J'utilise la méthode config de dotenv pour connecter mon fichier .env et accéder à ses variables
 
-app.use(multer().any());
-
 // J'importe toutes les routes de mon projet
 const homeRoutes = require("./routes/home");
 const prestationRoutes = require("./routes/prestation");
@@ -38,7 +36,7 @@ app.use(express.json());
 // On indique à method-override le nom du paramètre qui indique les types de requêtes PUT et DELETE
 app.use(methodOverride("_method"));
 app.use(cookieParser());
-
+app.use(multer().any());
 // Je me connecte à la base de donnée
 mongoose
   .connect(process.env.URL_DATABASE)

@@ -13,6 +13,7 @@
         <% if (detailsProduct) { %>
         <div>
           <h2><%= detailsProduct.titre %></h2>
+          <img src="/images/<%= detailsProduct.titre.split(' ').join('-') %>.webp"></img>
           <span class="contenance"><%= detailsProduct.contenance %></span>
           <div>
             <p><%= detailsProduct.description %></p>

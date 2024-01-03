@@ -17,6 +17,7 @@
       <form
         action="/products/<%= detailsProduct._id %>/update?_method=PUT"
         method="POST"
+        enctype="multipart/form-data"
       >
         <div>
           <label for="titre">Titre</label>
@@ -45,10 +46,6 @@
             value="<%= detailsProduct ? detailsProduct.contenance : '' %>"
           />
         </div>
-        <!-- <div>
-        <label for="photo">Photo</label>
-        <input type="image" id="photo" name="photo" />
-      </div> -->
         <div>
           <label for="etape1">Etape1</label>
           <input
@@ -122,6 +119,10 @@
             <option value="1">Oui</option>
             <option value="2">Non</option>
           </select>
+        </div>
+        <div>
+          <label for="image">Photo du produit</label>
+          <input type="file" id="image" name="image" />
         </div>
 
         <button>Modifier</button>

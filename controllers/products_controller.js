@@ -327,15 +327,14 @@ exports.getProduct = async (req, res) => {
     ? res.locals.detailsProduct
     : null;
   const isConnected = req.session.isConnected ? req.session.isConnected : false;
-  res
-    .status(200)
-    .render(
-      path.join(__dirname, "../views/management/products/detail-product.ejs"),
-      {
-        isConnected,
-        detailsProduct,
-      }
-    );
+  res.status(200).render(
+    path.join(__dirname, "../views/management/products/detail-product.ejs"),
+
+    {
+      isConnected,
+      detailsProduct,
+    }
+  );
 };
 
 // Middleware pour afficher la page "Modifier un produit"

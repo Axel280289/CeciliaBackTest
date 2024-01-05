@@ -243,6 +243,25 @@ exports.getProductById = async (req, res, next) => {
   }
 };
 
+// Pour récuperer les infos produits dans ma page products
+exports.getProduits = async (req, res, next) => {
+  try {
+    /* Pour récupérer un paramètre d'url on utilise la propriété params de l'objet request */
+    const products = await Product.find();
+    /* 
+            On stocke les données du produit localement avec la propriété locals de l'objet request   
+            qui permet de transférer des informations d'une requête vers elle-même (get /users/:id => get /users/:id)
+        */
+    res.locals.detailsProducts = products;
+
+    /* Comme le middleware se situera au milieu d'une requête on utilise next pour passer au middleware suivant */
+    next();
+  } catch (error) {
+    console.log("Try product error", error);
+    res.status(500).json({ message: "Erreur find Product id " + error });
+  }
+};
+
 // Middleware pour afficher la page "Créer un produit"
 exports.addProduct = async (req, res) => {
   /* On récupère si c'est le cas, la variable de session successCreateCar pour afficher son contenu dans la page */

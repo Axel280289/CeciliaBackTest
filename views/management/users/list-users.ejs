@@ -31,10 +31,6 @@
             </a>
           </td>
           <td data-label="Email"><%= user.email %></td>
-          <td data-label="Adresse">
-            <%= user.address.street %> <br />
-            <%= user.address.zipcode %> <%= user.address.city %>
-          </td>
           <td data-label="Action">
             <a href="/users/<%= user._id %>/update">Modifier</a>
           </td>

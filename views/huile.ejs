@@ -4,12 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/index.css" />
-    <title>Huiles</title>
+    <title>Shampoings</title>
   </head>
   <body>
     <%- include('./components/header.ejs') %>
-    <h1>Nos Huiles</h1>
-
+    <main>
+      <section class="h2Produit">
+        <h2>Nos Shampoing</h2>
+        <div class="topProduit">
+          <% detailsProducts.forEach(function(product) { %> <% if
+          (product.categorie === 'huile') { %>
+          <article>
+            <h3><%= product.titre %></h3>
+            <p><%= product.contenance %></p>
+            <img src="/images/<%= product.titre.split(' ').join('-') %>.webp" />
+            <p><%= product.description %></p>
+            <button>
+              <a href="/products/<%= product._id %>">En savoir plus</a>
+            </button>
+          </article>
+          <% } %> <% }); %>
+        </div>
+      </section>
+    </main>
     <%- include('./components/footer.ejs') %>
     <script src="/scripts/burger.js"></script>
   </body>

@@ -635,7 +635,11 @@ form button {
 }
 
 .ficheProduct div img {
-  width: 80%;
+  width: 300px;
+  height: 230px;
+  max-width: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .imgFicheProduct {
@@ -700,14 +704,18 @@ form button {
 }
 
 .topProduit img {
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 25px;
   width: 230px;
+  height: 230px;
   margin: 0 auto;
 }
 
 .topProduit article {
   display: flex;
   flex-direction: column;
+  width: 500px;
   max-width: 90%;
   margin: 0 auto;
   background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
@@ -718,6 +726,7 @@ form button {
 
 .topProduit p {
   color: #fdf9ec;
+  text-align: center;
 }
 
 .catProduitContainer {

@@ -17,8 +17,8 @@
         <thead>
           <tr>
             <th>Titre</th>
-            <th>Contenance</th>
-            <th>Description</th>
+            <th>Catégorie</th>
+            <th>Favoris</th>
             <th>action Modifier</th>
             <th>action Supprimer</th>
           </tr>
@@ -28,8 +28,8 @@
           <td data-label="Titre">
             <a href="/products/<%= product._id %>"> <%= product.titre %> </a>
           </td>
-          <td data-label="contenance"><%= product.contenance %></td>
-          <td data-label="description"><%= product.description %></td>
+          <td data-label="catégorie"><%= product.categorie %></td>
+          <td data-label="favoris"><%= product.favoris %></td>
           <td data-label="Action">
             <a href="/products/<%= product._id %>/update">Modifier</a>
           </td>

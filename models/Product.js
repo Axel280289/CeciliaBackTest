@@ -12,7 +12,7 @@ const productSchema = mongoose.Schema({
   etape2: { type: String, required: true, trim: true },
   etape3: { type: String, required: true, trim: true },
   etape4: { type: String, required: true, trim: true },
-  etape5: { type: String, required: true, trim: true },
+  etape5: { type: String, required: false, trim: true },
   precaution: { type: String, required: true, trim: true },
   favoris: { type: String, required: true, trim: true },
   categorie: { type: String, required: true, trim: true },

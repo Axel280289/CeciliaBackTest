@@ -8,8 +8,25 @@
   </head>
   <body>
     <%- include('./components/header.ejs') %>
-    <h1>Nos Shampoings</h1>
-
+    <main>
+      <section class="h2Produit">
+        <h2>Nos Shampoing</h2>
+        <div class="topProduit">
+          <% detailsProducts.forEach(function(product) { %> <% if
+          (product.categorie === 'shampoing') { %>
+          <article>
+            <h3><%= product.titre %></h3>
+            <p><%= product.contenance %></p>
+            <img src="/images/<%= product.titre.split(' ').join('-') %>.webp" />
+            <p><%= product.description %></p>
+            <button>
+              <a href="/products/<%= product._id %>">En savoir plus</a>
+            </button>
+          </article>
+          <% } %> <% }); %>
+        </div>
+      </section>
+    </main>
     <%- include('./components/footer.ejs') %>
     <script src="/scripts/burger.js"></script>
   </body>

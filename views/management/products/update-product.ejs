@@ -116,8 +116,17 @@
             name="favoris"
             value="<%= detailsProduct ? detailsProduct.favoris : '' %>"
           >
-            <option value="1">Oui</option>
-            <option value="2">Non</option>
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+          </select>
+        </div>
+        <div>
+          <label for="categorie">Catégories</label>
+          <select id="categorie" name="categorie">
+            <option value="shampoing">Shampoings</option>
+            <option value="apresShampoing">Aprés-Shampoings</option>
+            <option value="huile">Huiles</option>
+            <option value="soin">Soins</option>
           </select>
         </div>
         <div>

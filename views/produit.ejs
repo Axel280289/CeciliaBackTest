@@ -8,29 +8,23 @@
   </head>
   <body>
     <%- include('../views/components/header.ejs') %>
-
     <main>
       <section class="h2Produit">
         <h2>Nos produits du moment</h2>
         <div class="topProduit">
+          <% detailsProducts.forEach(function(product) { %> <% if
+          (product.favoris === 'oui') { %>
           <article>
-            <h3>pdt1</h3>
-            <img src="/images/KerastaseBG.webp" alt="Photo du produit" />
-            <p></p>
-            <button>En savoir plus</button>
+            <% console.log(product) %>
+            <h3><%= product.titre %></h3>
+            <p><%= product.contenance %></p>
+            <img src="/images/<%= product.titre.split(' ').join('-') %>.webp" />
+            <p><%= product.description %></p>
+            <button>
+              <a href="/products/<%= product._id %>">En savoir plus</a>
+            </button>
           </article>
-          <article>
-            <h3>pdt2</h3>
-            <img src="/images/KerastaseBG.webp" alt="Photo du produit" />
-            <p></p>
-            <button>En Savoir plus</button>
-          </article>
-          <article>
-            <h3>pdt3</h3>
-            <img src="/images/KerastaseBG.webp" alt="Photo du produit" />
-            <p></p>
-            <button>En Savoir plus</button>
-          </article>
+          <% } %> <% }); %>
         </div>
       </section>
 

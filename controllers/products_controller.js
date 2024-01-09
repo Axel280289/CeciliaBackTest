@@ -293,11 +293,9 @@ exports.createProduct = async (req, res) => {
         if (product) {
           return res.status(409).json({ message: "product already exists" });
 
-          /* Si le produit n'existe pas */
+          /* Si le produit n'existe pas on le crée */
         } else {
           newProduct(req, res);
-
-          /* Si l'adresse n'existe pas, on crée la nouvelle adresse puis on crée ensuite le nouvel véhicule */
         }
       })
       .catch((error) => {

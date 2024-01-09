@@ -5,23 +5,22 @@
   border-radius: 25px;
   @include marginCenter;
   margin-block: 20px;
+  h2 {
+    text-align: center;
+    color: $color2;
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
 }
 
 .table-responsive {
   display: flex;
   justify-content: center;
 }
-.listUser h2 {
-  text-align: center;
-  color: $color2;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
 
 thead {
   display: none;
 }
-
 td,
 th {
   border: 2px solid $color2;
@@ -34,13 +33,14 @@ th {
 
 td {
   color: $color1;
+  font-weight: 600;
   padding-left: 120px;
   position: relative;
   background: rgb(170, 170, 170);
   height: 45px;
+  letter-spacing: 2px;
   text-align: center;
 }
-
 th,
 tr,
 td {

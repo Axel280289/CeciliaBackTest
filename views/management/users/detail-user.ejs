@@ -8,19 +8,17 @@
   </head>
   <body>
     <%- include('../../components/header.ejs') %> <% if (detailsUser) { %>
-    <h2>Détails de <%= detailsUser.lastname %> <%= detailsUser.firstname %></h2>
-    <ul>
-      <li>Nom : <%= detailsUser.lastname %></li>
-      <li>Prénom : <%= detailsUser.firstname %></li>
-      <li>Email : <%= detailsUser.email %></li>
-      <li>Adresse :</li>
+    <main>
+      <h2>
+        Détails de <%= detailsUser.lastname %> <%= detailsUser.firstname %>
+      </h2>
       <ul>
-        <li>N° et Nom de voie : <%= detailsUser.address.street %></li>
-        <li>Code Postal : <%= detailsUser.address.zipcode %></li>
-        <li>Commune : <%= detailsUser.address.city %></li>
+        <li>Nom : <%= detailsUser.lastname %></li>
+        <li>Prénom : <%= detailsUser.firstname %></li>
+        <li>Email : <%= detailsUser.email %></li>
       </ul>
-    </ul>
-    <% } %>
-    <script src="/scripts/burger.js"></script>
+      <% } %>
+      <script src="/scripts/burger.js"></script>
+    </main>
   </body>
 </html>

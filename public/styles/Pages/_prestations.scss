@@ -8,18 +8,31 @@
   margin: 0 auto;
   gap: 25px;
   margin-top: 50px;
+  p {
+    color: $color1;
+    background: linear-gradient(#1a1818f5, #1414189f);
+    padding: 10px;
+    border-radius: 25px;
+  }
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
+    gap: 5px;
+    padding: 15px;
+    border-radius: 25px;
+    border: 2px solid $marron;
+    h3 {
+      color: $color2;
+      font-size: 1.5rem;
+      text-align: center;
+      background: linear-gradient(#1a1818f5, #1414189f);
+      border-radius: 25px;
+    }
+  }
 }
 
-.catContainer article {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 400px;
-  gap: 5px;
-  padding: 15px;
-  border-radius: 25px;
-  border: 2px solid $marron;
-}
 .headerPrestation h2 {
   text-align: center;
   color: $color2;
@@ -29,7 +42,6 @@
   background: linear-gradient(#1a1818f5, #1414189f);
   max-width: 85%;
 }
-
 .headerPrestation p {
   text-align: center;
   color: $color1;
@@ -38,36 +50,6 @@
   padding: 10px;
   border-radius: 25px;
   margin: 0 auto 50px;
-}
-
-.catContainer article h3 {
-  color: $color2;
-  font-size: 1.5rem;
-  text-align: center;
-  background: linear-gradient(#1a1818f5, #1414189f);
-  border-radius: 25px;
-}
-
-.catContainer p {
-  color: $color1;
-  background: linear-gradient(#1a1818f5, #1414189f);
-  padding: 10px;
-  border-radius: 25px;
-}
-
-.catContainer article h3 {
-  color: $color2;
-  font-size: 1.5rem;
-  text-align: center;
-  background: linear-gradient(#1a1818f5, #1414189f);
-  border-radius: 25px;
-}
-
-.catContainer p {
-  color: $color1;
-  background: linear-gradient(#1a1818f5, #1414189f);
-  padding: 10px;
-  border-radius: 25px;
 }
 
 .catContainer article:nth-of-type(1) {
@@ -104,30 +86,28 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-  }
-  .catContainer article {
-    width: 420px;
+    article {
+      width: 420px;
+    }
   }
   .headerPrestation p {
     max-width: 65%;
   }
 }
-
 @media screen and (min-width: 1350px) {
   .catContainer article {
     width: 550px;
   }
 }
-
 @media screen and (min-width: 1500px) {
   .catContainer article {
     width: 700px;
     height: 400px;
-  }
-  .catContainer article p {
-    width: 75%;
-    @include marginCenter;
-    text-align: center;
+    p {
+      width: 75%;
+      @include marginCenter;
+      text-align: center;
+    }
   }
 }
 
@@ -140,7 +120,6 @@
     max-width: 85%;
     margin-top: 50px;
   }
-
   .catContainer article:nth-child(3) {
     grid-row-start: 1;
     grid-row-end: 3;

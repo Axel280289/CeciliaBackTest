@@ -2,23 +2,22 @@
 header {
   background: linear-gradient(#111010ec, #1010139c);
   height: 73vh;
+  h1 {
+    color: $color2;
+    font-size: 3.1rem;
+    text-align: center;
+    margin-top: 35px;
+  }
+  p {
+    color: $color1;
+    text-align: center;
+    margin-top: 35px;
+    max-width: 85%;
+    margin: 35px auto 0;
+    font-size: 1.4rem;
+  }
 }
 
-header h1 {
-  color: $color2;
-  font-size: 3.1rem;
-  text-align: center;
-  margin-top: 35px;
-}
-
-header p {
-  color: $color1;
-  text-align: center;
-  margin-top: 35px;
-  max-width: 85%;
-  margin: 35px auto 0;
-  font-size: 1.4rem;
-}
 .logo {
   display: flex;
   justify-content: center;
@@ -31,14 +30,13 @@ header p {
 }
 .menu {
   display: none;
+  ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
 }
-.menu ul {
-  list-style-type: none;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
 a {
   color: $color1;
   text-decoration: none;
@@ -101,54 +99,52 @@ a:visited {
 @media screen and (min-width: 900px) {
   .menu {
     display: block;
+  ul{
+      font-size: 1.3rem;
+      gap: 50px;
+    }
   }
   .menu-icon {
     display: none;
   }
-
   .logo img {
     border-radius: 50%;
     width: 100%;
   }
-
-  .menu ul {
-    font-size: 1.3rem;
-    gap: 50px;
-  }
-  header h1 {
-    color: $color2;
-    font-size: 3.3rem;
-    text-align: center;
-    margin-top: 20px;
-  }
   header {
-    height: 65vh;
+    height: 70vh;
+    h1 {
+      color: $color2;
+      font-size: 3.3rem;
+      text-align: center;
+      margin-top: 20px;
+    }
   }
 }
 
 @media screen and (min-width: 1200px) {
-  header h1 {
-    color: $color2;
-    font-size: 5rem;
-    margin-top: 40px;
-  }
 
   header {
-    height: 70vh;
-  }
+    height: 75vh;
 
-  header p {
-    color: $color1;
-    text-align: center;
-    margin-top: 35px;
-    max-width: 85%;
-    margin: 40px auto 0;
-    font-size: 2rem;
+    h1 {
+      color: $color2;
+      font-size: 5rem;
+      margin-top: 40px;
+    }
   }
 }
 
 @media screen and (min-width: 1750px) {
   header {
     height: 60vh;
+    p {
+      color: $color1;
+      text-align: center;
+      margin-top: 35px;
+      max-width: 85%;
+      margin: 40px auto 0;
+      font-size: 2rem;
+    }
   }
 }

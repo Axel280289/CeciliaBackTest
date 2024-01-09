@@ -7,17 +7,16 @@
   max-width: 260px;
   display: flex;
   flex-direction: column;
-}
-
-.mainConnect h2 {
-  text-align: center;
-  color: $color2;
-  font-size: 2rem;
-}
-.mainConnect p,
-label {
-  text-align: center;
-  color: $color1;
+  h2 {
+    text-align: center;
+    color: $color2;
+    font-size: 2rem;
+  }
+   p,
+  label {
+    text-align: center;
+    color: $color1;
+  }
 }
 
 .connect {
@@ -27,23 +26,21 @@ label {
   align-items: center;
   gap: 15px;
   margin-top: 15px;
-}
-
-.connect input {
-  width: 200px;
-  padding: 8px 5px;
-  border-radius: 15px;
-}
-
-.connect button {
-  border-radius: 25px;
-  padding: 10px 25px;
-  margin: 0 auto;
-  background-color: $color2;
-  cursor: pointer;
-  font-weight: 800;
-  border: $marron 1px solid;
-  margin-block: 10px;
+  input {
+    width: 200px;
+    padding: 8px 5px;
+    border-radius: 15px;
+  }
+   button {
+    border-radius: 25px;
+    padding: 10px 25px;
+    margin: 0 auto;
+    background-color: $color2;
+    cursor: pointer;
+    font-weight: 800;
+    border: $marron 1px solid;
+    margin-block: 10px;
+  }
 }
 
 .inscription {
@@ -61,16 +58,15 @@ label {
   max-width: 260px;
   display: flex;
   flex-direction: column;
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+   h1 {
+    color: $color2;
+    text-align: center;
+  }
 }
 
-.mainDisconnect form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.mainDisconnect h1 {
-  color: $color2;
-  text-align: center;
-}

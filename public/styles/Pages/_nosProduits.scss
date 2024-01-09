@@ -2,6 +2,34 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  h3 {
+    color: $color2;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+   img {
+    object-fit: cover;
+    border-radius: 25px;
+    width: 230px;
+    height: 230px;
+    @include marginCenter;
+  }
+  article {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    max-width: 90%;
+    @include marginCenter;
+    background: linear-gradient(#1a1818f5, #1414189f);
+    gap: 10px;
+    padding: 15px;
+    border-radius: 25px;
+  }
+  p {
+    color: $color1;
+    text-align: center;
+  }
 }
 .h2Produit h2 {
   color: $color2;
@@ -13,38 +41,6 @@
   padding: 10px 15px;
   border-radius: 25px;
 }
-
-.topProduit h3 {
-  color: $color2;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.topProduit img {
-  object-fit: cover;
-  border-radius: 25px;
-  width: 230px;
-  height: 230px;
-  @include marginCenter;
-}
-
-.topProduit article {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  max-width: 90%;
-  @include marginCenter;
-  background: linear-gradient(#1a1818f5, #1414189f);
-  gap: 10px;
-  padding: 15px;
-  border-radius: 25px;
-}
-
-.topProduit p {
-  color: $color1;
-  text-align: center;
-}
-
 // Catégorie de produit //
 
 .catProduitContainer {
@@ -55,33 +51,29 @@
   margin: 0 auto;
   gap: 25px;
   margin-top: 50px;
+  p {
+    color: $color1;
+    background: linear-gradient(#1a1818f5, #1414189f);
+    padding: 10px;
+    border-radius: 25px;
+  }
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
+    gap: 5px;
+    padding: 15px;
+    border-radius: 25px;
+    h3 {
+      color: $color2;
+      font-size: 1.5rem;
+      text-align: center;
+      background: linear-gradient(#1a1818f5, #1414189f);
+      border-radius: 25px;
+    }
+  }
 }
-
-.catProduitContainer article {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 400px;
-  gap: 5px;
-  padding: 15px;
-  border-radius: 25px;
-}
-
-.catProduitContainer article h3 {
-  color: $color2;
-  font-size: 1.5rem;
-  text-align: center;
-  background: linear-gradient(#1a1818f5, #1414189f);
-  border-radius: 25px;
-}
-
-.catProduitContainer p {
-  color: $color1;
-  background: linear-gradient(#1a1818f5, #1414189f);
-  padding: 10px;
-  border-radius: 25px;
-}
-
 .catProduitContainer article:nth-of-type(1) {
   background: url(/images/shampoing.webp) center no-repeat;
   background-size: cover;
@@ -111,55 +103,50 @@
     width: 520px;
   }
 }
-
 @media screen and (min-width: 900px) {
   .topProduit {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     gap: 25px;
-  }
-
-  .topProduit article {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    background: linear-gradient(#1a1818f5, #1414189f);
-    gap: 10px;
-    padding: 15px;
-    border-radius: 25px;
-    margin: 0;
+    article {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      background: linear-gradient(#1a1818f5, #1414189f);
+      gap: 10px;
+      padding: 15px;
+      border-radius: 25px;
+      margin: 0;
+    }
   }
   .h2Produit h2 {
     max-width: 500px;
   }
 }
-
 @media screen and (min-width: 1010px) {
   .catProduitContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-  }
-  .catProduitContainer article {
-    width: 420px;
-  }
+    article {
+      width: 420px;
+    }
+  } 
 }
-
 @media screen and (min-width: 1350px) {
   .catProduitContainer article {
     width: 550px;
   }
 }
-
 @media screen and (min-width: 1500px) {
   .catProduitContainer article {
     width: 700px;
     height: 400px;
-  }
-  .catProduitContainer article p {
-    width: 75%;
-    @include marginCenter;
-    text-align: center;
+    p {
+      width: 75%;
+      @include marginCenter;
+      text-align: center;
+    }
   }
 }

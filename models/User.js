@@ -10,7 +10,6 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, trim: true, unique: true },
   password: { type: String, required: true, trim: true },
   address: { type: mongoose.Schema.Types.ObjectId, ref: AddressUser },
-  image: { type: String, required: true, trim: true },
 });
 
 userSchema.plugin(uniqueValidator);

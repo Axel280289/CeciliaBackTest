@@ -10,13 +10,6 @@ const verifInputs = (req, res) => {
   body("confirm", "La confirmation du mot de passe est obligatoire")
     .isString()
     .notEmpty();
-  body("street", "Le numéro et nom de voie est obligatoire")
-    .isString()
-    .notEmpty();
-  body("zipcode", "Le code postal est obligatoire")
-    .isPostalCode("FR")
-    .notEmpty();
-  body("city", "La ville est obligatoire").isString().notEmpty();
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

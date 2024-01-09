@@ -1,0 +1,59 @@
+.create {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    background: linear-gradient(#1a1818f5, #1414189f);
+    padding: 25px;
+    border-radius: 25px;
+    margin-block: 20px;
+    gap: 10px;
+    input {
+      width: 100%;
+      border-radius: 10px;
+      padding: 5px;
+    }
+    button {
+      border-radius: 25px;
+      padding: 10px 25px;
+      margin: 0 auto;
+      background-color: $color2;
+      cursor: pointer;
+      font-weight: 800;
+      border: $marron 1px solid;
+      margin-block: 10px;
+    }
+  }
+  h2 {
+    max-width: 90%;
+    margin-top: 20px;
+    color: $color2;
+    font-size: 2rem;
+    background: linear-gradient(#1a1818f5, #1414189f);
+    padding: 10px;
+    border-radius: 25px;
+    text-align: center;
+  }
+}
+label {
+  color: $color1;
+}
+.succes {
+  @include marginCenter;
+  margin-top: 20px;
+  text-align: center;
+  color: $color1;
+  font-size: 2rem;
+  background: linear-gradient(#1a1818f5, #1414189f);
+  max-width: 300px;
+  border-radius: 25px;
+  font-style: italic;
+}
+@media screen and (min-width: 500px) {
+  .succes {
+    max-width: 500px;
+  }
+}

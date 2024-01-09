@@ -9,10 +9,9 @@
   <body>
     <%- include('../../components/header.ejs') %> <% if(successUpdateUser) { %>
     <p><%= successUpdateUser %></p>
-    <% } %> <% const zipcode = (detailsUser.address.zipcode).length < 5 ?
-    `0${detailsUser.address.zipcode}` : detailsUser.address.zipcode %>
+    <% } %>
 
-    <main class="createUser">
+    <main class="create">
       <h2>Mise à jour d'un utilisateur</h2>
       <form
         action="/users/<%= detailsUser._id %>/update?_method=PUT"
@@ -43,35 +42,6 @@
             id="email"
             name="email"
             value="<%= detailsUser ? detailsUser.email : '' %>"
-          />
-        </div>
-        <div>
-          <label for="street">N° et Nom de voie</label>
-          <input
-            type="text"
-            id="street"
-            name="street"
-            value="<%= detailsUser ? detailsUser.address.street : '' %>"
-          />
-        </div>
-        <div>
-          <label for="zipcode">Code postal</label>
-          <input
-            type="text"
-            id="zipcode"
-            name="zipcode"
-            minlength="5"
-            maxlength="5"
-            value="<%= detailsUser ? zipcode : '' %>"
-          />
-        </div>
-        <div>
-          <label for="city">Ville</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value="<%= detailsUser ? detailsUser.address.city : '' %>"
           />
         </div>
         <button>Modifier</button>

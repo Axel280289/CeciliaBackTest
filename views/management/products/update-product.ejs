@@ -113,20 +113,18 @@
           <label for="favoris">Favoris</label>
           <select
             id="favoris"
-            name="favoris"
-            value="<%= detailsProduct ? detailsProduct.favoris : '' %>"
-          >
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
+            name="favoris">
+            <option value="oui" <%= detailsProduct.favoris === 'oui' ? 'selected="selected"' : '' %>>Oui</option>
+            <option value="non" <%= detailsProduct.favoris === 'non' ? 'selected="selected"' : '' %>>Non</option>
           </select>
         </div>
         <div>
           <label for="categorie">Catégories</label>
           <select id="categorie" name="categorie">
-            <option value="shampoing">Shampoings</option>
-            <option value="apresShampoing">Aprés-Shampoings</option>
-            <option value="huile">Huiles</option>
-            <option value="soin">Soins</option>
+            <option value="shampoing" <%= detailsProduct.categorie === 'shampoing' ? 'selected="selected"' : '' %>>Shampoings</option>
+            <option value="apresShampoing" <%= detailsProduct.categorie === 'apresShampoing' ? 'selected="selected"' : '' %>>Aprés-Shampoings</option>
+            <option value="huile" <%= detailsProduct.categorie === 'huile' ? 'selected="selected"' : '' %>>Huiles</option>
+            <option value="soin" <%= detailsProduct.categorie === 'soin' ? 'selected="selected"' : '' %>>Soins</option>
           </select>
         </div>
         <div>

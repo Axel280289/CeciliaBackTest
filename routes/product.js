@@ -23,13 +23,7 @@ router.post("/products/create/add", authMiddleware, verifUser, createProduct);
 router.get("/products", authMiddleware, verifUser, getProducts);
 
 // Informations d'un produit spécifique (get => afficher la page)
-router.get(
-  "/products/:id",
-  authMiddleware,
-  verifUser,
-  getProductById,
-  getProduct
-);
+router.get("/products/:id", getProductById, getProduct);
 
 // Mise à jour d'un produit (get => afficher la page, put => validation formulaire de mise à jour)
 router.get(

@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="découvrez Nos produits" />
+    <link rel="icon" href="/images/Logo.ico" />
     <link rel="stylesheet" href="/styles/index.css" />
     <title>Nos produits</title>
   </head>
@@ -15,10 +17,13 @@
           <% detailsProducts.forEach(function(product) { %> <% if
           (product.favoris === 'oui') { %>
           <article>
-            <% console.log(product) %>
+            <!-- console.log(product) -->
             <h3><%= product.titre %></h3>
             <p><%= product.contenance %></p>
-            <img src="/images/<%= product.titre.split(' ').join('-') %>.webp" />
+            <img
+              src="/images/<%= product.titre.split(' ').join('-') %>.webp"
+              alt="Photo du produit"
+            />
             <p><%= product.description %></p>
             <button>
               <a href="/products/<%= product._id %>">En savoir plus</a>
@@ -63,9 +68,6 @@
               doloremque repellat, pariatur ipsa explicabo quod alias.
               Reprehenderit quam sed temporibus iste consequuntur. Eaque cumque
               iusto perferendis beatae dolores amet voluptates nemo natus cum
-              sed, qui fugiat libero aperiam repudiandae exercitationem rem!
-              Fugit accusantium earum, laudantium vitae quia corporis quo porro
-              facilis laboriosam?
             </p>
             <button><a href="/huile">En Savoir plus</a></button>
           </article>
@@ -77,9 +79,6 @@
               doloremque repellat, pariatur ipsa explicabo quod alias.
               Reprehenderit quam sed temporibus iste consequuntur. Eaque cumque
               iusto perferendis beatae dolores amet voluptates nemo natus cum
-              sed, qui fugiat libero aperiam repudiandae exercitationem rem!
-              Fugit accusantium earum, laudantium vitae quia corporis quo porro
-              facilis laboriosam?
             </p>
             <button><a href="/soin">En Savoir plus</a></button>
           </article>

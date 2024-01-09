@@ -1,29 +1,28 @@
-.infoPrestation ul {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  background: linear-gradient(#1a1818f5, #1414189f);
-  padding: 25px;
-  border-radius: 25px;
-  border: 1px solid black;
-  max-width: 85%;
-}
+
 
 .infoPrestation {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  h3 {
+    color: $color2;
+  }
+  
+   ul li {
+    color: $color1;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: linear-gradient(#1a1818f5, #1414189f);
+    padding: 25px;
+    border-radius: 25px;
+    border: 1px solid black;
+    max-width: 85%;
+  }
 }
-
-.infoPrestation h3 {
-  color: $color2;
-}
-
-.infoPrestation ul li {
-  color: $color1;
-}
-
 .photoContainer {
   display: none;
 }

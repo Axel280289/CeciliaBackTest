@@ -7,21 +7,22 @@ footer {
   background: linear-gradient(#1a1818f5, #1414189f);
   padding: 25px;
   border-radius: 25px;
-}
 
-footer div:nth-child(1) {
-  border-bottom: 1px solid $color1;
-}
-
-footer div {
+div {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 25px;
 }
-footer p {
+
+div:nth-child(1) {
+  border-bottom: 1px solid $color1;
+}
+
+ p {
   color: $color1;
   text-align: center;
+}
 }
 .footer-img {
   width: 35%;

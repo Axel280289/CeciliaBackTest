@@ -15,14 +15,12 @@ header {
   background: linear-gradient(rgba(17, 16, 16, 0.9254901961), rgba(16, 16, 19, 0.6117647059));
   height: 73vh;
 }
-
 header h1 {
   color: #dfd7bf;
   font-size: 3.1rem;
   text-align: center;
   margin-top: 35px;
 }
-
 header p {
   color: #fdf9ec;
   text-align: center;
@@ -47,7 +45,6 @@ header p {
 .menu {
   display: none;
 }
-
 .menu ul {
   list-style-type: none;
   display: flex;
@@ -124,6 +121,10 @@ a:visited {
   .menu {
     display: block;
   }
+  .menu ul {
+    font-size: 1.3rem;
+    gap: 50px;
+  }
   .menu-icon {
     display: none;
   }
@@ -131,9 +132,8 @@ a:visited {
     border-radius: 50%;
     width: 100%;
   }
-  .menu ul {
-    font-size: 1.3rem;
-    gap: 50px;
+  header {
+    height: 70vh;
   }
   header h1 {
     color: #dfd7bf;
@@ -141,18 +141,20 @@ a:visited {
     text-align: center;
     margin-top: 20px;
   }
-  header {
-    height: 65vh;
-  }
 }
 @media screen and (min-width: 1200px) {
+  header {
+    height: 75vh;
+  }
   header h1 {
     color: #dfd7bf;
     font-size: 5rem;
     margin-top: 40px;
   }
+}
+@media screen and (min-width: 1750px) {
   header {
-    height: 70vh;
+    height: 60vh;
   }
   header p {
     color: #fdf9ec;
@@ -161,11 +163,6 @@ a:visited {
     max-width: 85%;
     margin: 40px auto 0;
     font-size: 2rem;
-  }
-}
-@media screen and (min-width: 1750px) {
-  header {
-    height: 60vh;
   }
 }
 button {
@@ -205,7 +202,6 @@ button:hover {
   gap: 15px;
   margin-top: 50px;
 }
-
 .container-accueil article {
   display: flex;
   flex-direction: column;
@@ -215,7 +211,6 @@ button:hover {
   height: 360px;
   border: 2px solid #3f2305;
 }
-
 .container-accueil article p {
   max-width: 95%;
   background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
@@ -223,7 +218,6 @@ button:hover {
   border-radius: 25px;
   color: #fdf9ec;
 }
-
 .container-accueil article h2 {
   color: #dfd7bf;
   background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
@@ -284,7 +278,7 @@ button:hover {
     line-height: 18px;
     padding: 25px;
   }
-  .container-accueil article {
+  .container-accueil article p article {
     width: 80%;
     margin: 0 auto;
   }
@@ -304,15 +298,13 @@ button:hover {
   display: flex;
   flex-direction: column;
 }
-
 .mainConnect h2 {
   text-align: center;
   color: #dfd7bf;
   font-size: 2rem;
 }
-
 .mainConnect p,
-label {
+.mainConnect label {
   text-align: center;
   color: #fdf9ec;
 }
@@ -325,13 +317,11 @@ label {
   gap: 15px;
   margin-top: 15px;
 }
-
 .connect input {
   width: 200px;
   padding: 8px 5px;
   border-radius: 15px;
 }
-
 .connect button {
   border-radius: 25px;
   padding: 10px 25px;
@@ -357,14 +347,12 @@ label {
   display: flex;
   flex-direction: column;
 }
-
 .mainDisconnect form {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-
 .mainDisconnect h1 {
   color: #dfd7bf;
   text-align: center;
@@ -378,17 +366,16 @@ label {
   margin: 0 auto;
   margin-block: 20px;
 }
-
-.table-responsive {
-  display: flex;
-  justify-content: center;
-}
-
 .listUser h2 {
   text-align: center;
   color: #dfd7bf;
   margin-bottom: 20px;
   font-size: 2rem;
+}
+
+.table-responsive {
+  display: flex;
+  justify-content: center;
 }
 
 thead {
@@ -408,10 +395,12 @@ th {
 
 td {
   color: #fdf9ec;
+  font-weight: 600;
   padding-left: 120px;
   position: relative;
   background: rgb(170, 170, 170);
   height: 45px;
+  letter-spacing: 2px;
   text-align: center;
 }
 
@@ -477,24 +466,20 @@ tr {
   flex-direction: column;
   max-width: 75%;
 }
-
 .dashboard h2 {
   text-align: center;
   color: #dfd7bf;
   font-size: 2rem;
 }
-
 .dashboard h3 {
   text-align: center;
   color: #dfd7bf;
 }
-
 .dashboard a {
   text-align: center;
   color: #fdf9ec;
   font-weight: 600;
 }
-
 .dashboard form {
   display: flex;
   flex-direction: column;
@@ -510,7 +495,6 @@ tr {
   align-items: center;
   flex-direction: column;
 }
-
 .create form {
   display: flex;
   flex-direction: column;
@@ -521,7 +505,21 @@ tr {
   margin-block: 20px;
   gap: 10px;
 }
-
+.create form input {
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+}
+.create form button {
+  border-radius: 25px;
+  padding: 10px 25px;
+  margin: 0 auto;
+  background-color: #dfd7bf;
+  cursor: pointer;
+  font-weight: 800;
+  border: #3f2305 1px solid;
+  margin-block: 10px;
+}
 .create h2 {
   max-width: 90%;
   margin-top: 20px;
@@ -533,25 +531,8 @@ tr {
   text-align: center;
 }
 
-form input {
-  width: 100%;
-  border-radius: 10px;
-  padding: 5px;
-}
-
 label {
   color: #fdf9ec;
-}
-
-form button {
-  border-radius: 25px;
-  padding: 10px 25px;
-  margin: 0 auto;
-  background-color: #dfd7bf;
-  cursor: pointer;
-  font-weight: 800;
-  border: #3f2305 1px solid;
-  margin-block: 10px;
 }
 
 .succes {
@@ -584,38 +565,20 @@ form button {
   list-style-type: none;
   max-height: 900px;
 }
-
 .ficheProduct h2 {
   color: #dfd7bf;
   text-align: center;
 }
-
-.productSup {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 10px;
-}
-
-.productSup div ul {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.productSup h3 {
-  color: #dfd7bf;
-}
-
-.contenance {
-  color: #fdf9ec;
-  text-align: center;
-  display: block;
-}
-
 .ficheProduct ul {
   list-style-type: none;
   color: #fdf9ec;
+}
+.ficheProduct div img {
+  width: 300px;
+  height: 230px;
+  max-width: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .ficheProduct > div p {
@@ -624,22 +587,34 @@ form button {
   padding: 10px;
 }
 
-.mainProduct {
+.productSup {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
 }
-
+.productSup div ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.productSup h3 {
+  color: #dfd7bf;
+}
 .productSup p {
   color: #fdf9ec;
   text-align: justify;
 }
 
-.ficheProduct div img {
-  width: 300px;
-  height: 230px;
-  max-width: 80%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.contenance {
+  color: #fdf9ec;
+  text-align: center;
+  display: block;
+}
+
+.mainProduct {
+  display: flex;
+  justify-content: center;
 }
 
 .imgFicheProduct {
@@ -685,6 +660,34 @@ form button {
   flex-direction: column;
   gap: 25px;
 }
+.topProduit h3 {
+  color: #dfd7bf;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.topProduit img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 25px;
+  width: 230px;
+  height: 230px;
+  margin: 0 auto;
+}
+.topProduit article {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  max-width: 90%;
+  margin: 0 auto;
+  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
+  gap: 10px;
+  padding: 15px;
+  border-radius: 25px;
+}
+.topProduit p {
+  color: #fdf9ec;
+  text-align: center;
+}
 
 .h2Produit h2 {
   color: #dfd7bf;
@@ -697,38 +700,6 @@ form button {
   border-radius: 25px;
 }
 
-.topProduit h3 {
-  color: #dfd7bf;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.topProduit img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 25px;
-  width: 230px;
-  height: 230px;
-  margin: 0 auto;
-}
-
-.topProduit article {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  max-width: 90%;
-  margin: 0 auto;
-  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
-  gap: 10px;
-  padding: 15px;
-  border-radius: 25px;
-}
-
-.topProduit p {
-  color: #fdf9ec;
-  text-align: center;
-}
-
 .catProduitContainer {
   display: grid;
   grid-template-columns: 1fr;
@@ -738,7 +709,12 @@ form button {
   gap: 25px;
   margin-top: 50px;
 }
-
+.catProduitContainer p {
+  color: #fdf9ec;
+  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
+  padding: 10px;
+  border-radius: 25px;
+}
 .catProduitContainer article {
   display: flex;
   flex-direction: column;
@@ -748,19 +724,11 @@ form button {
   padding: 15px;
   border-radius: 25px;
 }
-
 .catProduitContainer article h3 {
   color: #dfd7bf;
   font-size: 1.5rem;
   text-align: center;
   background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
-  border-radius: 25px;
-}
-
-.catProduitContainer p {
-  color: #fdf9ec;
-  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
-  padding: 10px;
   border-radius: 25px;
 }
 
@@ -850,7 +818,12 @@ form button {
   gap: 25px;
   margin-top: 50px;
 }
-
+.catContainer p {
+  color: #fdf9ec;
+  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
+  padding: 10px;
+  border-radius: 25px;
+}
 .catContainer article {
   display: flex;
   flex-direction: column;
@@ -860,6 +833,13 @@ form button {
   padding: 15px;
   border-radius: 25px;
   border: 2px solid #3f2305;
+}
+.catContainer article h3 {
+  color: #dfd7bf;
+  font-size: 1.5rem;
+  text-align: center;
+  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
+  border-radius: 25px;
 }
 
 .headerPrestation h2 {
@@ -880,36 +860,6 @@ form button {
   padding: 10px;
   border-radius: 25px;
   margin: 0 auto 50px;
-}
-
-.catContainer article h3 {
-  color: #dfd7bf;
-  font-size: 1.5rem;
-  text-align: center;
-  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
-  border-radius: 25px;
-}
-
-.catContainer p {
-  color: #fdf9ec;
-  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
-  padding: 10px;
-  border-radius: 25px;
-}
-
-.catContainer article h3 {
-  color: #dfd7bf;
-  font-size: 1.5rem;
-  text-align: center;
-  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
-  border-radius: 25px;
-}
-
-.catContainer p {
-  color: #fdf9ec;
-  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
-  padding: 10px;
-  border-radius: 25px;
 }
 
 .catContainer article:nth-of-type(1) {
@@ -987,6 +937,18 @@ form button {
     height: 100%;
   }
 }
+.infoPrestation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.infoPrestation h3 {
+  color: #dfd7bf;
+}
+.infoPrestation ul li {
+  color: #fdf9ec;
+}
 .infoPrestation ul {
   display: flex;
   flex-direction: column;
@@ -996,21 +958,6 @@ form button {
   border-radius: 25px;
   border: 1px solid black;
   max-width: 85%;
-}
-
-.infoPrestation {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.infoPrestation h3 {
-  color: #dfd7bf;
-}
-
-.infoPrestation ul li {
-  color: #fdf9ec;
 }
 
 .photoContainer {
@@ -1050,18 +997,15 @@ footer {
   padding: 25px;
   border-radius: 25px;
 }
-
-footer div:nth-child(1) {
-  border-bottom: 1px solid #fdf9ec;
-}
-
 footer div {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 25px;
 }
-
+footer div:nth-child(1) {
+  border-bottom: 1px solid #fdf9ec;
+}
 footer p {
   color: #fdf9ec;
   text-align: center;

@@ -29,7 +29,10 @@
             <a href="/products/<%= product._id %>"> <%= product.titre %> </a>
           </td>
           <td data-label="catégorie"><%= product.categorie %></td>
-          <td data-label="favoris"><%= product.favoris %></td>
+          <td data-label="favoris">
+            <% if (product.favoris === "oui") { %> &#x2705; <% } else { %>
+            &#x274C; <% } %>
+          </td>
           <td data-label="Action">
             <a href="/products/<%= product._id %>/update">Modifier</a>
           </td>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="stylesheet" href="/styles/index.css" />
     <title>Document</title>
   </head>
@@ -20,54 +20,104 @@
         enctype="multipart/form-data"
       >
         <div>
-          <label for="titre">Titre</label>
-          <input type="text" id="titre" name="titre" />
+          <label for="titre">Titre*</label>
+          <input
+            type="text"
+            id="titre"
+            name="titre"
+            placeholder="Titre du produit"
+          />
         </div>
         <div>
-          <label for="description">Description</label>
-          <input type="text" id="description" name="description" />
+          <label for="description">Description*</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            placeholder="Description du produit"
+          />
         </div>
         <div>
-          <label for="contenance">Contenance</label>
-          <input type="txt" id="contenance" name="contenance" />
+          <label for="contenance">Contenance*</label>
+          <input
+            type="txt"
+            id="contenance"
+            name="contenance"
+            placeholder="Contenance du produit"
+          />
         </div>
         <div>
-          <label for="etape1">Etape1</label>
-          <input type="text" id="etape1" name="etape1" />
+          <label for="etape1">Etape1*</label>
+          <input
+            type="text"
+            id="etape1"
+            name="etape1"
+            placeholder="Conseil d'utilisation 1"
+          />
         </div>
         <div>
-          <label for="etape2">Etape2</label>
-          <input type="text" id="etape2" name="etape2" />
+          <label for="etape2">Etape2*</label>
+          <input
+            type="text"
+            id="etape2"
+            name="etape2"
+            placeholder="Conseil d'utilisation *"
+          />
         </div>
         <div>
-          <label for="etape3">Etape3</label>
-          <input type="text" id="etape3" name="etape3" />
+          <label for="etape3">Etape3*</label>
+          <input
+            type="text"
+            id="etape3"
+            name="etape3"
+            placeholder="Conseil d'utilisation 3"
+          />
         </div>
         <div>
-          <label for="etape4">Etape4</label>
-          <input type="text" id="etape4" name="etape4" />
+          <label for="etape4">Etape4*</label>
+          <input
+            type="text"
+            id="etape4"
+            name="etape4"
+            placeholder="Conseil d'utilisation 4"
+          />
         </div>
         <div>
           <label for="etape5">Etape5</label>
-          <input type="text" id="etape5" name="etape5" />
+          <input
+            type="text"
+            id="etape5"
+            name="etape5"
+            placeholder="Conseil d'utilisation 5"
+          />
         </div>
         <div>
-          <label for="precaution">Précaution utilisation</label>
-          <input type="text" id="precaution" name="precaution" />
+          <label for="precaution">Précaution utilisation *</label>
+          <input
+            type="text"
+            id="precaution"
+            name="precaution"
+            placeholder="Précaution d'utilisation"
+          />
         </div>
         <div>
           <label for="benefice">Bénéfice utilisation</label>
-          <input type="text" id="benefice" name="benefice" />
+          <input
+            type="text"
+            id="benefice"
+            name="benefice"
+            placeholder="bénéfice d'utilisation"
+          />
         </div>
         <div>
-          <label for="favoris">Favoris</label>
+          <label for="favoris">Favoris*</label>
           <select id="favoris" name="favoris">
             <option value="oui">Oui</option>
             <option value="non">Non</option>
           </select>
         </div>
         <div>
-          <label for="categorie">Catégories</label>
+          <label for="categorie">Catégories*</label>
           <select id="categorie" name="categorie">
             <option value="shampoing">Shampoings</option>
             <option value="apresShampoing">Aprés-Shampoings</option>
@@ -76,7 +126,7 @@
           </select>
         </div>
         <div>
-          <label for="image">Photo du produit:</label>
+          <label for="image">Photo du produit *:</label>
           <input type="file" id="image" name="image" />
         </div>
 

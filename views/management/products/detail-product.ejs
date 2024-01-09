@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Description de nos produits" />
     <link rel="stylesheet" href="/styles/index.css" />
-    <title>Document</title>
+    <title>Details <%= detailsProduct.titre %></title>
   </head>
   <body>
     <%- include('../../components/header.ejs') %>
@@ -15,6 +16,7 @@
           <h2><%= detailsProduct.titre %></h2>
           <img
             src="/images/<%= detailsProduct.titre.split(' ').join('-') %>.webp"
+            alt="Photo du produit"
           />
           <span class="contenance"><%= detailsProduct.contenance %></span>
           <div>

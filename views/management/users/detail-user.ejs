@@ -8,15 +8,14 @@
   </head>
   <body>
     <%- include('../../components/header.ejs') %> <% if (detailsUser) { %>
-    <main>
-      <h2>
-        Détails de <%= detailsUser.lastname %> <%= detailsUser.firstname %>
-      </h2>
+
+    <main class="mainUser">
       <ul>
         <li>Nom : <%= detailsUser.lastname %></li>
         <li>Prénom : <%= detailsUser.firstname %></li>
         <li>Email : <%= detailsUser.email %></li>
       </ul>
+
       <% } %>
       <script src="/scripts/burger.js"></script>
     </main>

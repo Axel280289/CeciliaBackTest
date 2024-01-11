@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 * {
+  font-family: Philosopher, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Dosis, sans-serif;
 }
 
 body {
@@ -13,7 +20,7 @@ body {
 /* Styles pour le menu burger */
 header {
   background: linear-gradient(rgba(17, 16, 16, 0.9254901961), rgba(16, 16, 19, 0.6117647059));
-  height: 73vh;
+  padding-bottom: 30px;
 }
 header h1 {
   color: #dfd7bf;
@@ -110,9 +117,6 @@ a:visited {
   }
 }
 @media screen and (min-width: 370px) {
-  header {
-    height: 65vh;
-  }
   .menu ul {
     flex-wrap: wrap;
   }
@@ -132,9 +136,6 @@ a:visited {
     border-radius: 50%;
     width: 100%;
   }
-  header {
-    height: 70vh;
-  }
   header h1 {
     color: #dfd7bf;
     font-size: 3.3rem;
@@ -143,9 +144,6 @@ a:visited {
   }
 }
 @media screen and (min-width: 1200px) {
-  header {
-    height: 75vh;
-  }
   header h1 {
     color: #dfd7bf;
     font-size: 5rem;
@@ -309,6 +307,10 @@ button:hover {
   color: #fdf9ec;
 }
 
+.mainConnect .error-message {
+  color: red;
+}
+
 .connect {
   display: flex;
   flex-direction: column;
@@ -335,6 +337,45 @@ button:hover {
 
 .inscription {
   font-weight: bold;
+}
+
+.mainUser {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
+  margin-block: 25px;
+  padding: 10px;
+  gap: 8px;
+  border-radius: 25px;
+  list-style-type: none;
+  width: 100%;
+  max-width: 300px;
+  max-height: 900px;
+}
+.mainUser h2 {
+  color: #dfd7bf;
+  text-align: center;
+}
+.mainUser ul {
+  list-style-type: none;
+  color: #fdf9ec;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+}
+.mainUser ul li {
+  font-size: 1.5rem;
+  overflow: auto;
+}
+.mainUser div img {
+  width: 300px;
+  height: 230px;
+  max-width: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .mainDisconnect {
@@ -393,12 +434,16 @@ th {
   color: #dfd7bf;
 }
 
+td span, td a {
+  filter: drop-shadow(0 0 1px black);
+}
+
 td {
   color: #fdf9ec;
   font-weight: 600;
   padding-left: 120px;
   position: relative;
-  background: rgb(170, 170, 170);
+  background: rgb(136, 135, 135);
   height: 45px;
   letter-spacing: 2px;
   text-align: center;
@@ -498,12 +543,12 @@ tr {
 .create form {
   display: flex;
   flex-direction: column;
-  max-width: 90%;
+  max-width: 500px;
   background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
   padding: 25px;
   border-radius: 25px;
   margin-block: 20px;
-  gap: 10px;
+  gap: 15px;
 }
 .create form input {
   width: 100%;
@@ -539,7 +584,7 @@ label {
   margin: 0 auto;
   margin-top: 20px;
   text-align: center;
-  color: #fdf9ec;
+  color: red;
   font-size: 2rem;
   background: linear-gradient(rgba(26, 24, 24, 0.9607843137), rgba(20, 20, 24, 0.6235294118));
   max-width: 300px;
@@ -583,7 +628,7 @@ label {
 
 .ficheProduct > div p {
   color: #fdf9ec;
-  text-align: justify;
+  text-align: center;
   padding: 10px;
 }
 
@@ -603,7 +648,7 @@ label {
 }
 .productSup p {
   color: #fdf9ec;
-  text-align: justify;
+  text-align: center;
 }
 
 .contenance {
@@ -620,6 +665,7 @@ label {
 .imgFicheProduct {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 10px;
 }
@@ -630,8 +676,12 @@ label {
     max-width: 70%;
     display: grid;
     grid-template-columns: 50% 50%;
-    align-items: center;
-    max-height: 500px;
+    align-items: left;
+    max-height: 600px;
+    text-align: center;
+  }
+  .ficheProduct div p {
+    text-align: left;
   }
   .productSup {
     display: flex;
@@ -640,7 +690,7 @@ label {
     justify-content: space-evenly;
   }
   .productSup li {
-    text-align: justify;
+    text-align: left;
     padding: 5px 10px;
   }
   .productSup h3 {
@@ -655,6 +705,11 @@ label {
     margin-right: 10px;
   }
 }
+.h2Produit {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
 .topProduit {
   display: flex;
   flex-direction: column;
@@ -764,9 +819,8 @@ label {
 }
 @media screen and (min-width: 900px) {
   .topProduit {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
     gap: 25px;
   }
   .topProduit article {

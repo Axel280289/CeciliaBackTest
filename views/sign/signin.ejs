@@ -10,6 +10,9 @@
     <%- include('../components/header.ejs') %>
     <main class="mainConnect">
       <h2>Connexion</h2>
+      <% if (errorMessage) { %>
+      <p class="error-message"><%= errorMessage %></p>
+      <% } %>
       <form class="connect" action="/signin/login" method="POST">
         <div>
           <label for="email">Email</label>
@@ -21,12 +24,6 @@
         </div>
         <button>Se connecter</button>
       </form>
-      <!-- <p>
-        Pas encore de compte ?
-        <a href="/signup">
-          <span class="inscription"> Inscrivez-vous !</span></a
-        >
-      </p> -->
     </main>
     <%- include('../components/footer.ejs') %>
     <script src="/scripts/burger.js"></script>

@@ -1,3 +1,8 @@
+
+.h2Produit{
+  max-width: 95%;
+  @include marginCenter
+}
 .topProduit {
   display: flex;
   flex-direction: column;
@@ -105,9 +110,8 @@
 }
 @media screen and (min-width: 900px) {
   .topProduit {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
     gap: 25px;
     article {
       display: flex;

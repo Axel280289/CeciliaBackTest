@@ -1,7 +1,7 @@
 /* Styles pour le menu burger */
 header {
   background: linear-gradient(#111010ec, #1010139c);
-  height: 73vh;
+  padding-bottom: 30px;
   h1 {
     color: $color2;
     font-size: 3.1rem;
@@ -89,9 +89,6 @@ a:visited {
 }
 
 @media screen and (min-width: 370px) {
-  header {
-    height: 65vh;
-  }
   .menu ul {
     flex-wrap: wrap;
   }
@@ -112,7 +109,6 @@ a:visited {
     width: 100%;
   }
   header {
-    height: 70vh;
     h1 {
       color: $color2;
       font-size: 3.3rem;
@@ -125,8 +121,6 @@ a:visited {
 @media screen and (min-width: 1200px) {
 
   header {
-    height: 75vh;
-
     h1 {
       color: $color2;
       font-size: 5rem;

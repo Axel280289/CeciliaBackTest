@@ -28,7 +28,7 @@
           <td data-label="Titre">
             <a href="/products/<%= product._id %>"> <%= product.titre %> </a>
           </td>
-          <td data-label="catégorie"><%= product.categorie %></td>
+          <td data-label="catégorie"><span><%= product.categorie %></span></td>
           <td data-label="favoris">
             <% if (product.favoris === "oui") { %> &#x2705; <% } else { %>
             &#x274C; <% } %>

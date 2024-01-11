@@ -123,6 +123,8 @@ exports.createUser = async (req, res) => {
 exports.signin = async (req, res) => {
   const isConnected = req.session.isConnected ? req.session.isConnected : false;
 
+  const errorMessage = req.query.error; // pour gérer le message d'erreur lors de la connexion
+
   // Si l'utilisateur est connecté je le redirige vers l'accueil
   if (isConnected) {
     res.status(300).redirect(`/`);
@@ -131,6 +133,7 @@ exports.signin = async (req, res) => {
   } else {
     res.status(200).render(path.join(__dirname, `../views/sign/signin.ejs`), {
       isConnected,
+      errorMessage,
     });
   }
 };
@@ -169,8 +172,12 @@ exports.login = async (req, res) => {
                 // Redirection vers la page d'accueil
                 res.status(200).redirect("/");
               } else {
-                // Si la comparaison n'est pas valide, renvoie une erreur 401 (non autorisé)
-                res.status(401).send("Mot de passe ou Email incorrect");
+                // Si l'utilisateur n'est pas trouvé, on renvoie à la page de connexion avec un message d'erreur
+                res
+                  .status(200)
+                  .redirect(
+                    "/signin?error=Utilisateur ou mot de pass incorrect !"
+                  );
               }
             })
             .catch((error) => {
@@ -179,8 +186,8 @@ exports.login = async (req, res) => {
               res.status(500).send("Erreur interne du serveur");
             });
         } else {
-          // Si l'utilisateur n'est pas trouvé, renvoie une erreur 401
-          res.status(401).send("Mot de passe ou Email incorrect");
+          // Si l'utilisateur n'est pas trouvé, on renvois a la page de connexion avec un message d'erreur
+          res.status(200).redirect("/signin");
         }
       })
       .catch((error) => {

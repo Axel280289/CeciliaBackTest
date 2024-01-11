@@ -13,25 +13,40 @@
     <main class="create">
       <h2>Création d'un utilisateur</h2>
       <form action="/users/create/add" method="POST">
-        <div>
+        <div class="verifLastname">
           <label for="lastname">Nom</label>
-          <input type="text" id="lastname" name="lastname" />
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            minlength="3"
+            maxlength="20"
+          />
         </div>
-        <div>
+        <div class="verifFirstname">
           <label for="firstname">Prénom</label>
-          <input type="text" id="firstname" name="firstname" />
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            minlength="3"
+            maxlength="20"
+          />
         </div>
-        <div>
+        <div class="verifEmail">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" />
+          <span id="emailFeedback"></span>
         </div>
-        <div>
+        <div class="verifMdp">
           <label for="password">Mot de passe</label>
           <input type="password" id="password" name="password" />
+          <span id="passwordFeedback"></span>
         </div>
-        <div>
+        <div class="confirmPassword">
           <label for="confirm">Confirmation Mot de passe</label>
           <input type="password" id="confirm" name="confirm" />
+          <span id="confirmPasswordFeedback"></span>
         </div>
 
         <button>Créer</button>
@@ -39,5 +54,6 @@
     </main>
     <%- include('../../components/footer.ejs') %>
     <script src="/scripts/burger.js"></script>
+    <script src="/scripts/script.js"></script>
   </body>
 </html>

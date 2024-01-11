@@ -31,7 +31,12 @@
               <li>Etapes 2 : <%= detailsProduct.etape2 %></li>
               <li>Etapes 3 : <%= detailsProduct.etape3 %></li>
               <li>Etapes 4 : <%= detailsProduct.etape4 %></li>
+              <% if (!detailsProduct.etape5) { %>
+              <!--  Si details product n'est pas rempli rien ne s'affiche  -->
+              <% } else { %>
+              <!-- Sinon  affiche les informations-->
               <li>Etapes 5 : <%= detailsProduct.etape5 %></li>
+              <% } %>
             </ul>
           </div>
           <div>

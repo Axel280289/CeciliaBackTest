@@ -27,13 +27,13 @@
 }
 .ficheProduct > div p {
   color: $color1;
-  text-align: justify;
+  text-align: center;
   padding: 10px;
 }
 .productSup {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: center;;
   gap: 10px;
   div ul {
     display: flex;
@@ -45,7 +45,7 @@
   }
   p {
     color: $color1;
-    text-align: justify;
+    text-align: center;
   }
 }
 .contenance {
@@ -61,6 +61,7 @@
 .imgFicheProduct {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 10px;
 }
@@ -71,8 +72,12 @@
     max-width: 70%;
     display: grid;
     grid-template-columns: 50% 50%;
-    align-items: center;
-    max-height: 500px;
+    align-items: left;
+    max-height: 600px;
+    text-align: center;
+    div p {
+    text-align: left;
+  }
   }
   .productSup {
     display: flex;
@@ -80,7 +85,7 @@
     height: 500px;
     justify-content: space-evenly;
     li {
-      text-align: justify;
+      text-align: left;
       padding: 5px 10px;
     }
     h3 {

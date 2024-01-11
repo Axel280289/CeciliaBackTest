@@ -15,18 +15,12 @@ dotenv.config(); // J'utilise la méthode config de dotenv pour connecter mon fi
 const homeRoutes = require("./routes/home");
 const prestationRoutes = require("./routes/prestation");
 const produitRoutes = require("./routes/produit");
-const femmeRoutes = require("./routes/femme");
-const hommeRoutes = require("./routes/homme");
-const enfantRoutes = require("./routes/enfant");
 const productsRoutes = require("./routes/product");
 const contactRoutes = require("./routes/contact");
 const usersRoutes = require("./routes/user");
 const adminRoutes = require("./routes/admin");
 const signRoutes = require("./routes/sign");
-const shampoingRoutes = require("./routes/shampoing");
-const apresShampoingRoutes = require("./routes/apresShampoing");
-const huileRoutes = require("./routes/huile");
-const soinRoutes = require("./routes/soin");
+const productCategoriesRoutes = require("./routes/productCategories");
 const errorRoutes = require("./routes/error");
 
 // J'utilise la méthode urlencoded pour récupérer les informations d'un formulaire et les stocker dans req.body
@@ -80,13 +74,7 @@ app.use(productsRoutes);
 app.use(signRoutes);
 app.use(adminRoutes);
 app.use(usersRoutes);
-app.use(femmeRoutes);
-app.use(hommeRoutes);
-app.use(enfantRoutes);
-app.use(shampoingRoutes);
-app.use(apresShampoingRoutes);
-app.use(huileRoutes);
-app.use(soinRoutes);
+app.use(productCategoriesRoutes);
 app.use(errorRoutes);
 
 // J'écoute les informations émis par mon application (app) avec la méthode listen, sans cette méthode le serveur ne peut fonctionner

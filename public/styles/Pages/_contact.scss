@@ -1,0 +1,45 @@
+
+.contactContainer {
+    max-width: 95%;
+    @include marginCenter;
+    h2{
+        color: $color2;
+        background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
+        width: 250px;
+        padding: 10px;
+        border-radius: 25px;
+        text-align: center;
+        margin: 35px auto;
+    }
+
+    section{
+        display: flex;
+        gap: 50px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.time, .contact  {
+    color: $color1;
+    background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
+    padding: 40px;
+    border-radius: 25px;
+    width: 400px;
+    box-shadow: 8px -10px #fdf9ecb0;
+   ul{
+    list-style-type: none;
+    font-size: 1.2rem;
+    li{
+        line-height: 40px;
+    }
+   }
+    h3{
+        color: $color2;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}
+
+

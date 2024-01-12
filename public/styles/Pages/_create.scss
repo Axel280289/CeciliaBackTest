@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    background: linear-gradient(#1a1818f5, #1414189f);
+    background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
     padding: 25px;
     border-radius: 25px;
     margin-block: 20px;
@@ -32,7 +32,7 @@
     margin-top: 20px;
     color: $color2;
     font-size: 2rem;
-    background: linear-gradient(#1a1818f5, #1414189f);
+    background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
     padding: 10px;
     border-radius: 25px;
     text-align: center;
@@ -41,13 +41,17 @@
 label {
   color: $color1;
 }
+
+[type="file"] {
+  color: $color1;
+}
 .succes {
   @include marginCenter;
   margin-top: 20px;
   text-align: center;
   color: red;
   font-size: 2rem;
-  background: linear-gradient(#1a1818f5, #1414189f);
+  background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
   max-width: 300px;
   border-radius: 25px;
   font-style: italic;

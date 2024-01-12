@@ -10,8 +10,33 @@
   </head>
   <body>
     <%- include('./components/header.ejs') %>
-    <h1>Contact</h1>
-
+    <main class="contactContainer">
+      <h2>Horaires et Contacts</h2>
+      <section>
+        <div class="time">
+          <ul>
+            <h3>Nos horaires d'ouverture</h3>
+            <li>Lundi : Fermé</li>
+            <li>Mardi : 8h00 a 18h30</li>
+            <li>Mercredi : 8h00 a 18h30</li>
+            <li>jeudi : 8h00 a 18h30</li>
+            <li>Vendredi : 8h00 a 18h30</li>
+            <li>Samedi : 7h30 a 18h00</li>
+            <li>dimanche : fermé</li>
+          </ul>
+        </div>
+        <div class="contact">
+          <ul>
+            <h3>Nos coordonnées</h3>
+            <li>13, rue des Chaudronniers</li>
+            <li>59400 Cambrai</li>
+            <li>03-27-81-57-13</li>
+            <li>sur rendez-vous entre 13 et 14h</li>
+            <li>les mardi mercredi et jeudi</li>
+          </ul>
+        </div>
+      </section>
+    </main>
     <%- include('./components/footer.ejs') %>
     <script src="/scripts/burger.js"></script>
   </body>

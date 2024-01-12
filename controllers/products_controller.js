@@ -40,7 +40,7 @@ const newProduct = async (req, res) => {
       );
       const newFilePath = path.join(
         __dirname,
-        "../public/images",
+        "../public/images/produits",
         `${sanitizedPseudo}.webp`
       );
 

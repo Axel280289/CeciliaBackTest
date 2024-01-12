@@ -1,5 +1,5 @@
 .mainConnect {
-  background: linear-gradient(#1a1818f5, #1414189f);
+  background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
   padding: 25px;
   border-radius: 25px;
   @include marginCenter;
@@ -58,7 +58,7 @@
     flex-direction: column;
     margin: 0 auto;
     justify-content: space-evenly;
-    background: linear-gradient(#1a1818f5, #1414189f);
+    background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
     margin-block: 25px;
     padding: 10px;
     gap: 8px;
@@ -95,7 +95,7 @@
 // deconnexion
 
 .mainDisconnect {
-  background: linear-gradient(#1a1818f5, #1414189f);
+  background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
   padding: 25px;
   border-radius: 25px;
   @include marginCenter;

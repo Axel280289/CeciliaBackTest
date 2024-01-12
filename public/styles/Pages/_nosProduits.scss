@@ -1,7 +1,8 @@
 
 .h2Produit{
   max-width: 95%;
-  @include marginCenter
+  @include marginCenter;
+  
 }
 .topProduit {
   display: flex;
@@ -26,10 +27,11 @@
     width: 500px;
     max-width: 90%;
     @include marginCenter;
-    background: linear-gradient(#1a1818f5, #1414189f);
+    background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
     gap: 10px;
     padding: 15px;
     border-radius: 25px;
+    box-shadow: 8px -10px #fdf9ecb0;
   }
   p {
     color: $color1;
@@ -41,7 +43,7 @@
   font-size: 2rem;
   text-align: center;
   margin: 50px auto;
-  background: linear-gradient(#1a1818f5, #1414189f);
+  background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
   max-width: 85%;
   padding: 10px 15px;
   border-radius: 25px;
@@ -49,19 +51,15 @@
 // Catégorie de produit //
 
 .catProduitContainer {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-items: center;
-  max-width: 85%;
+  max-width: 95%;
   margin: 0 auto;
   gap: 25px;
   margin-top: 50px;
-  p {
-    color: $color1;
-    background: linear-gradient(#1a1818f5, #1414189f);
-    padding: 10px;
-    border-radius: 25px;
-  }
+ 
   article {
     display: flex;
     flex-direction: column;
@@ -74,7 +72,16 @@
       color: $color2;
       font-size: 1.5rem;
       text-align: center;
-      background: linear-gradient(#1a1818f5, #1414189f);
+      background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
+      border-radius: 25px;
+      @include marginCenter;
+      width: 350px;
+      max-width: 85%;
+    }
+    p {
+      color: $color1;
+      background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
+      padding: 10px;
       border-radius: 25px;
     }
   }
@@ -111,13 +118,15 @@
 @media screen and (min-width: 900px) {
   .topProduit {
     display: grid;
+    justify-items: center;
     grid-template-columns: 33% 33% 33%;
     gap: 25px;
     article {
       display: flex;
       flex-direction: column;
       width: 400px;
-      background: linear-gradient(#1a1818f5, #1414189f);
+      @include marginCenter;
+      background: linear-gradient(#0f0f0ff5, #0b0b0cc5);
       gap: 10px;
       padding: 15px;
       border-radius: 25px;

@@ -6,64 +6,65 @@ const bcrypt = require("bcrypt");
 // J'importe les middlewares dont j'ai besoin
 const verifInputs = require("../middlewares/verifInputs");
 const findUserByMail = require("../middlewares/findUserByMail");
-const findAddress = require("../middlewares/findAddress");
-const createAddress = require("../middlewares/createAddress");
 
-// Fonction pour récupérer les informations d'un utilisateur grâce à son identifiant
+// Fonction asynchrone pour trouver un utilisateur par son identifiant.
 const findUserById = async (id) => {
+  // Utilise la méthode 'findOne' de Mongoose pour rechercher un utilisateur par son '_id'.
+  // 'await' assure que la fonction attend le résultat de la requête à la base de données.
   return await User.findOne({ _id: id });
 };
 
-// Fonction pour ajouter un nouvel utilisateur dans la base de données
+// Fonction asynchrone pour ajouter un nouvel utilisateur à la base de données.
 const newUser = async (req, res) => {
-  // Hashage du mot de passe grâce à la méthode hash du package bcrypt
+  // Hashage du mot de passe avec bcrypt. Le '10' est le facteur de salage pour le hashage.
   const hash = await bcrypt.hash(req.body.password, 10);
 
-  // Création d'un nouvel utilisateur (new User) avec les données du formulaire (req.body)
+  // Crée une nouvelle instance de l'utilisateur avec les données reçues de la requête.
   const user = new User({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
-    password: hash,
+    password: hash, // Utilise le mot de passe hashé.
   });
 
-  /* Sauvegarde des données du nouvel utilisateur dans la base de données grâce à la méthode .save de mongoose */
+  // Sauvegarde l'utilisateur dans la base de données.
   user
     .save()
     .then((result) => {
-      /* On crée une variable de session pour pouvoir l'utiliser sur un autre type de requête http (post => get) */
+      // En cas de succès, stocke un message dans la session et redirige vers une autre page.
       req.session.successCreateUser = `Utilisateur ${result.lastname} ${result.firstname} créé avec succès.`;
-      /* On redirige vers la page de création d'un utilisateur */
       res.status(200).redirect("/users/create");
     })
     .catch((error) => {
+      // En cas d'erreur (par exemple, échec de sauvegarde dans la base de données), renvoie une erreur 500.
       res.status(500).json({ error: error });
     });
 };
 
 // Fonction pour mettre à jour un utilisateur
 const refreshUser = async (req, res, user) => {
-  // On récupère toutes les informations de l'utilisateur venant du formulaire (req.body), de l'url (req.params), ...
+  // Crée un objet avec les nouvelles données de l'utilisateur.
+  // Les données sont extraites de la requête (req) - à la fois du corps (req.body) et des paramètres (req.params).
   const updatedUser = {
     _id: req.params.id,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
-    password: user.password,
+    password: user.password, // Conserve le mot de passe existant.
   };
-
-  // On utilise la méthode updateOne de mongoose pour effectuer la mise à jour
+  // Utilise la méthode updateOne de Mongoose pour mettre à jour l'utilisateur dans la base de données.
+  // La mise à jour est effectuée sur l'utilisateur dont l'ID correspond à celui fourni dans req.params.id.
   await User.updateOne({ _id: req.params.id }, { ...updatedUser })
     .then((result) => {
-      // Quand la mise à jour s'effectue on enregistre un message de succès
+      // Si la mise à jour réussit, un message de succès est stocké dans la session.
       req.session.successUpdateUser = `Utilisateur ${updatedUser.lastname} ${updatedUser.firstname} mis à jour avec succès.`;
-
-      // Puis on redirige vers la page de mise à jour pour voir le message
+      // Redirige l'utilisateur vers la page de mise à jour pour afficher le message.
       res.redirect(`/users/${req.params.id}/update`);
     })
     .catch((error) => {
+      // En cas d'erreur, log l'erreur et indique que la mise à jour n'a pas réussi.
       console.log(error.message);
-      console.log("utilisateur non mis à jour Address trouvé");
+      console.log("utilisateur non mis à jour");
     });
 };
 
@@ -71,7 +72,7 @@ const refreshUser = async (req, res, user) => {
 exports.getUserById = async (req, res, next) => {
   try {
     /* Pour récupérer un paramètre d'url on utilise la propriété params de l'objet request */
-    const user = await User.findOne({ _id: req.params.id }).populate("address");
+    const user = await User.findOne({ _id: req.params.id });
     /* 
             On stocke les données de l'utilisateur localement avec la propriété locals de l'objet request  
             qui permet de transférer des informations d'une requête vers elle-même (get /users/:id => get /users/:id)
@@ -99,42 +100,55 @@ exports.addUser = (req, res) => {
       successCreateUser,
     });
 };
-
 // Middleware de validation du formulaire de la page "Créer un utilisateur"
+// Définition de la fonction 'createUser'. Elle est exportée pour être utilisée ailleurs dans l'application.
 exports.createUser = (req, res) => {
   try {
-    /* On vérifie et sécurise les données qui sont envoyées */
+    // Vérifie et sécurise les données reçues dans la requête (req).
     verifInputs(req, res);
-    /* On vérifie si l'utilisateur existe déjà dans la base de données */
+    // Vérifie si un utilisateur avec le même email existe déjà dans la base de données.
     findUserByMail(req)
       .then((user) => {
-        /* Si l'utilisateur existe */
+        // Si un utilisateur avec l'email fourni est déjà présent dans la base de données...
         if (user) {
-          return res.status(409).json({ message: "User already exists" });
+          // ...renvoie un statut HTTP 409 (Conflit) avec un message indiquant que l'utilisateur existe déjà.
+          return res
+            .status(409)
+            .json({ message: " Adresse Email déja utilisé" });
         } else {
+          // Si aucun utilisateur n'est trouvé, procède à la création d'un nouvel utilisateur.
           newUser(req, res);
         }
       })
       .catch((error) => {
+        // En cas d'erreur lors de la recherche de l'utilisateur (par exemple, une erreur de base de données),
+        // enregistre l'erreur dans la console et renvoie une réponse d'erreur 500 (Erreur interne du serveur).
         console.log("Erreur findUserByMail", error);
         res.status(500).json({ error: error });
       });
   } catch (error) {
+    // En cas d'erreur dans le bloc 'try' (par exemple, si 'verifInputs' lève une exception),
+    // enregistre l'erreur dans la console.
     console.log("try error", error);
   }
 };
 
-// Middleware pour afficher la page "Liste des utilisateurs"
+// Déclaration du middleware pour afficher la page de liste des utilisateurs.
 exports.getUsers = async (req, res, next) => {
   try {
+    // Récupération de la variable de session 'successDeleteUser'. Si elle n'existe pas, assigne 'null'.
     const successDeleteUser = req.session.successDeleteUser
       ? req.session.successDeleteUser
       : null;
+    // Vérification de l'état de connexion de l'utilisateur et stockage dans une variable.
     const isConnected = req.session.isConnected
       ? req.session.isConnected
       : false;
-    /* On récupère les informations de l'utilisateur (find) en oubliant pas de relier la collection addressusers (populate) */
-    const users = await User.find().populate("address");
+    // Récupération de tous les utilisateurs dans la base de données.
+    // La méthode 'find()' sans arguments renvoie tous les documents de la collection 'User'.
+    const users = await User.find();
+    // Envoi d'une réponse HTTP avec le statut 200 (OK) et rendu de la vue EJS.
+    // Les données des utilisateurs, le statut de connexion et le message de succès de suppression sont passés à la vue.
     res
       .status(200)
       .render(
@@ -142,6 +156,7 @@ exports.getUsers = async (req, res, next) => {
         { users, successDeleteUser, isConnected }
       );
   } catch (error) {
+    // En cas d'erreur dans le processus, enregistrement de l'erreur dans la console et envoi d'une réponse 500.
     console.error(error.message);
     res.status(500).send("Server Error");
   }
@@ -179,20 +194,26 @@ exports.modifyUser = async (req, res, next) => {
 };
 
 // Middleware de validation du formulaire de la page "Mise à jour d'un utilisateur"
+// Exporte la fonction 'updateUser' pour qu'elle puisse être utilisée ailleurs dans l'application.
 exports.updateUser = async (req, res) => {
   try {
-    /* On vérifie et sécurise les données qui sont envoyées */
+    // Vérifie et sécurise les données reçues dans la requête (req).
     verifInputs(req, res);
-
-    // On vérifie si l'utilisateur existe
+    // Recherche l'utilisateur par son ID (fourni dans les paramètres de la requête).
+    // L'utilisation d'`await` fait attendre la résolution de la promesse retournée par `findUserById`.
     await findUserById(req.params.id)
       .then((user) => {
+        // Si l'utilisateur est trouvé, appelle la fonction 'refreshUser' pour mettre à jour l'utilisateur.
         refreshUser(req, res, user);
       })
       .catch((error) => {
+        // En cas d'erreur lors de la recherche de l'utilisateur (par exemple, l'utilisateur n'existe pas),
+        // renvoie une réponse 404 (Non trouvé) avec le message d'erreur.
         res.status(404).send("Error Find User" + error.message);
       });
   } catch (error) {
+    // En cas d'erreur dans le bloc 'try' (par exemple, si 'verifInputs' lève une exception),
+    // enregistre l'erreur dans la console et renvoie une réponse 500 (Erreur interne du serveur).
     console.error(error.message);
     res.status(500).send("Server Error controller");
   }

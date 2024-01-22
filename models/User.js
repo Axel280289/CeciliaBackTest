@@ -1,31 +1,24 @@
-// J'importe les modules et les potentiels modèles nécessaires
+// Importation du module Mongoose pour interagir avec MongoDB
 const mongoose = require("mongoose");
-const AddressUser = require("./AddressUser");
+// Importation du plugin uniqueValidator pour assurer l'unicité des valeurs dans certains champs
 const uniqueValidator = require("mongoose-unique-validator");
-
-// J'utilise la méthode Schema pour définir le model de document pour la collection users
+// Définition du schéma pour la collection "users" dans MongoDB
 const userSchema = mongoose.Schema({
+  // Définition du champ "lastname" de type String, requis et avec suppression des espaces superflus
   lastname: { type: String, required: true, trim: true },
+  // Définition du champ "firstname" de type String, requis et avec suppression des espaces superflus
   firstname: { type: String, required: true, trim: true },
+  // Définition du champ "email" de type String, requis, unique et avec suppression des espaces superflus
   email: { type: String, required: true, trim: true, unique: true },
+  // Définition du champ "password" de type String, requis et avec suppression des espaces superflus
   password: { type: String, required: true, trim: true },
-  address: { type: mongoose.Schema.Types.ObjectId, ref: AddressUser },
 });
-
+// Ajout du plugin uniqueValidator au schéma pour garantir l'unicité de l'email
 userSchema.plugin(uniqueValidator);
-
-// J'exporte mon model en lui donnant un nom, lui associant son schéma ainsi que la collection de la base de données
+// Exportation du modèle "User" basé sur le schéma "userSchema" et associé à la collection "users" dans MongoDB
 module.exports = mongoose.model("User", userSchema, "users");
 
 /*
-    Exemple d'un Document de la collection users
- {
-    "_id": klladb77510aa78
-    "lastname": "Doe",
-    "firstname": "John",
-    "mail": "jd@mail.com",
-    "password": "qsfqsfsqf",
-    "address": "qASD2487FDQlllk"
- }
+
 
 */

@@ -11,38 +11,51 @@
     <main class="listUser">
       <h2>Liste des Produits</h2>
       <% if(successDeleteProduct) { %>
+      <!-- Si successDeleteProduct est vrai, affiche le paragraphe ci-dessous -->
       <p class="succes"><%= successDeleteProduct %></p>
-      <% } %> <% if(products) { %>
+      <!-- Affiche la valeur de successDeleteProduct -->
+      <% } %>
+      <!-- Fin du bloc if -->
+      <% if(products) { %>
+      <!-- Vérifie si l'objet products existe -->
       <table class="table-responsive">
         <thead>
           <tr>
             <th>Titre</th>
             <th>Catégorie</th>
             <th>Favoris</th>
-            <th>action Modifier</th>
-            <th>action Supprimer</th>
+            <th>Action Modifier</th>
+            <th>Action Supprimer</th>
           </tr>
         </thead>
         <% products.forEach(product => { %>
+        <!-- Boucle sur chaque produit dans products -->
         <tr>
           <td data-label="Titre">
             <a href="/products/<%= product._id %>"> <%= product.titre %> </a>
+            <!-- Affiche le titre du produit et crée un lien vers sa page -->
           </td>
-          <td data-label="catégorie"><span><%= product.categorie %></span></td>
-          <td data-label="favoris">
+          <td data-label="Catégorie"><span><%= product.categorie %></span></td>
+          <!-- Affiche la catégorie du produit -->
+          <td data-label="Favoris">
             <% if (product.favoris === "oui") { %> &#x2705; <% } else { %>
             &#x274C; <% } %>
+            <!-- Affiche une icône différente en fonction de si le produit est un favori ou non -->
           </td>
           <td data-label="Action">
             <a href="/products/<%= product._id %>/update">Modifier</a>
+            <!-- Lien pour modifier le produit -->
           </td>
           <td data-label="Action">
             <a href="/products/<%= product._id %>/delete">Supprimer</a>
+            <!-- Lien pour supprimer le produit -->
           </td>
         </tr>
         <% }) %>
+        <!-- Fin de la boucle forEach -->
       </table>
       <% } %>
+      <!-- Fin du bloc if pour vérifier products -->
     </main>
     <%- include('../../components/footer.ejs') %>
     <script src="/scripts/burger.js"></script>

@@ -1,5 +1,5 @@
 @import "./settings";
-@import "./layout/header";
+@import "./Components/header";
 @import "./components/button";
 @import "./pages/accueil";
 @import "./pages/contact";
@@ -11,6 +11,6 @@
 @import "./pages/nosproduits";
 @import "./pages/prestations";
 @import "./pages/prestationFhe";
-@import "./layout/footer";
+@import "./Components/footer";
 // @import "./components/onglet";
 // @import "./components/menuBurger";

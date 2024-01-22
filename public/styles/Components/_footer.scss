@@ -7,19 +7,16 @@ footer {
   background: linear-gradient(#1a1818f5, #1414189f);
   padding: 25px;
   border-radius: 25px;
-
 div {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 25px;
 }
-
 div:nth-child(1) {
   border-bottom: 1px solid $color1;
 }
-
- p {
+p {
   color: $color1;
   text-align: center;
 }

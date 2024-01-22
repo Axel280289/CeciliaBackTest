@@ -1,25 +1,29 @@
-// J'importe les modules dont j'aurai besoin
+// Importation du module express pour créer et gérer le serveur.
 const express = require("express");
+// Importation du module path pour la gestion des chemins de fichiers.
 const path = require("path");
+// Création d'un nouvel objet router à l'aide d'Express pour gérer les routes.
 const router = express.Router();
-
-// Je définis ensuite mes routes ou "ressources" => http://localhost:3001/contact => protocole://domaine:port/ressource
-// Le chemin "/" est la route dite "racine" celle sur laquelle on arrive sur l'adresse url de base d'un site (sans ressource précise), généralement la page d'accueil du site
+// Définition des routes (chemins d'accès) pour l'application.
+// La route racine ("/") correspond à la page d'accueil du site.
 router.get("/", (req, res) => {
-  // Ici aucune requête n'est envoyé, mais je traite la réponse (response => res) que le serveur doit envoyé au client
-  // J'indique également le status correspondant à la réponse (200 => tout va c'est bien passé)
-  // J'affiche les données de mon fichier index.ejs grâce à la méthode render
+  // Traitement de la réponse (res) que le serveur envoie au client.
+  // Aucune requête (req) n'est traitée ici.
+
+  // Vérification si l'utilisateur est connecté et stockage de l'état dans userConnected.
+  // Si req.session.userConnected existe, utiliser sa valeur, sinon null.
   const userConnected = req.session.userConnected
     ? req.session.userConnected
     : null;
+  // Vérification de l'état de connexion et stockage dans isConnected.
+  // Si req.session.isConnected existe, utiliser sa valeur, sinon false.
   const isConnected = req.session.isConnected ? req.session.isConnected : false;
-  res
-    .status(200)
-    .render(path.join(__dirname, "../index.ejs"), {
-      isConnected,
-      userConnected,
-    });
+  // Envoi d'une réponse HTTP avec le statut 200 (OK).
+  // Rendu du fichier index.ejs en passant les variables isConnected et userConnected.
+  res.status(200).render(path.join(__dirname, "../index.ejs"), {
+    isConnected,
+    userConnected,
+  });
 });
-
-// J'exporte le router pour relier mes différentes routes au projet
+// Exportation du router pour permettre son utilisation dans d'autres parties de l'application.
 module.exports = router;

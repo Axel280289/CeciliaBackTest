@@ -35,18 +35,19 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(cookieParser());
 app.use(multer().any());
-// Je me connecte à la base de donnée
-mongoose
-  .connect(process.env.URL_DATABASE)
-  .then(() => console.log("Connexion à MongoDB réussie !"))
-  .catch((error) => console.log(`${error}`));
 
-// J'utilise express-session pour créer une session à mon utilisateur de base
+// Tente de se connecter à une base de données MongoDB en utilisant Mongoose.
+mongoose
+  .connect(process.env.URL_DATABASE) // URL de la base de données MongoDB est stockée dans une variable d'environnement pour la sécurité.
+  .then(() => console.log("Connexion à MongoDB réussie !")) // Si la connexion est réussie, affiche un message dans la console.
+  .catch((error) => console.log(`${error}`)); // En cas d'échec, affiche l'erreur dans la console.
+
+// Configurer express-session pour gérer les sessions utilisateur dans une application Express.
 app.use(
   session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: false,
+    secret: process.env.SECRET_KEY, // Clé secrète pour signer le cookie de session, stockée dans une variable d'environnement pour la sécurité.
+    resave: false, // Ne pas sauvegarder la session si elle n'a pas été modifiée.
+    saveUninitialized: false, // Ne pas créer de session pour les demandes non authentifiées.
   })
 );
 
@@ -55,7 +56,8 @@ app.use("/images", express.static(`${__dirname}/public/images/`)); // les liens 
 app.use("/styles", express.static(`${__dirname}/public/styles/`)); // les liens vers mes feuilles de style commenceront maintenant par "/styles" => "/styles/monStyle.css"
 app.use("/scripts", express.static(`${__dirname}/public/scripts`));
 
-// Avant qu'une requête soit envoyer je veux configurer quelques middlewares qui afficheront des informations utiles comme la date/heure de la requête, ou encore le status/type de la requête
+// Avant qu'une requête soit envoyer je veux configurer quelques middlewares qui afficheront des informations utiles comme la date/heure de la requête, ou encore le status/type de
+//la requête
 // Avec ce middleware, je veux afficher la date de la requête
 app.use((req, res, next) => {
   console.log(new Date().toLocaleDateString());

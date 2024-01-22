@@ -14,17 +14,13 @@ const {
 } = require("../controllers/products_controller");
 const { authMiddleware } = require("../middlewares/authMiddleware");
 const { verifUser } = require("../middlewares/verifUser");
-
 // Créer un produit (get => afficher la page, post => validation formulaire de création)
 router.get("/products/create", authMiddleware, verifUser, addProduct);
 router.post("/products/create/add", authMiddleware, verifUser, createProduct);
-
 // Liste des produits (get => afficher la page)
 router.get("/products", authMiddleware, verifUser, getProducts);
-
 // Informations d'un produit spécifique (get => afficher la page)
 router.get("/products/:id", getProductById, getProduct);
-
 // Mise à jour d'un produit (get => afficher la page, put => validation formulaire de mise à jour)
 router.get(
   "/products/:id/update",
@@ -34,7 +30,6 @@ router.get(
   modifyProduct
 );
 router.put("/products/:id/update", authMiddleware, verifUser, updateProduct);
-
 // Supprimer un produit (get => afficher la page, delete => validation formulaire suppression)
 router.get(
   "/products/:id/delete",
@@ -44,6 +39,5 @@ router.get(
   removeProduct
 );
 router.delete("/products/:id/delete", authMiddleware, verifUser, deleteProduct);
-
 // J'exporte le router pour relier mes différentes routes au projet
 module.exports = router;

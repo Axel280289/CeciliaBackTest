@@ -10,8 +10,8 @@
     <%- include('../components/header.ejs') %>
     <main class="mainConnect">
       <h2>Connexion</h2>
-      <% if (errorMessage) { %>
-      <p class="error-message"><%= errorMessage %></p>
+      <% if (error) { %>
+      <p class="error-message">Utilisateur ou mot de passe incorrect</p>
       <% } %>
       <form class="connect" action="/signin/login" method="POST">
         <div>

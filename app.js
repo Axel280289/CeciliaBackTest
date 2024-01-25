@@ -7,6 +7,8 @@ const session = require("express-session"); // permet de créer une session util
 const methodOverride = require("method-override"); // Permet d'ajouter un paramètre à l'url d'action d'un formulaire pour exécuter les requêtes PUT et DELETE
 const cookieParser = require("cookie-parser"); // Permet de récupérer les données des cookie de l'objet request
 const app = express(); // J'initialise le serveur de mon application avec la fonction express.
+const xssFilters = require("xss-filters");
+const helmet = require("helmet");
 const multer = require("multer");
 
 dotenv.config(); // J'utilise la méthode config de dotenv pour connecter mon fichier .env et accéder à ses variables
@@ -26,6 +28,8 @@ const errorRoutes = require("./routes/error");
 // J'utilise la méthode urlencoded pour récupérer les informations d'un formulaire et les stocker dans req.body
 app.use(express.urlencoded({ extended: true }));
 /* <input name="lastname" value="Doe"> => { "lastname": "Doe"} (objet json) */
+
+app.use(helmet()); //aide à sécuriser en configurant divers en-têtes HTTP
 
 // J'utilise la méthode json pour pouvoir "parser" les données json en objet js, afin de les récupérer grâce à req.body
 app.use(express.json());

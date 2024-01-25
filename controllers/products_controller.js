@@ -66,6 +66,15 @@ const newProduct = async (req, res) => {
         // Convertit l'image en format .webp avec une qualité de 80
         await sharp(tempNewFilePath).toFile(newFilePath);
         // Sauvegarde l'image .webp dans le chemin définitif
+        // try {
+        //   fs.unlinkSync(tempFilePath); // Supprime le fichier temporaire original
+        //   fs.unlinkSync(tempNewFilePath); // Supprime le fichier temporaire converti
+        // } catch (err) {
+        //   console.error(
+        //     "Erreur lors de la suppression des fichiers temporaires : ",
+        //     err
+        //   );
+        // }
       }
     }
     // Création d'une nouvelle instance de produit avec les données reçues du formulaire
@@ -124,7 +133,7 @@ const refreshProduct = async (req, res) => {
       );
       const newFilePath = path.join(
         __dirname,
-        "../public/images",
+        "../public/images/produits",
         `${sanitizedTitre}.webp`
       );
 
@@ -164,12 +173,12 @@ const refreshProduct = async (req, res) => {
           const oldTitre = product.titre.toLowerCase().split(" ").join("-");
           const oldFilePath = path.join(
             __dirname,
-            "../public/images",
+            "../public/images/produits",
             `${oldTitre}.webp`
           );
           const newFilePath = path.join(
             __dirname,
-            "../public/images",
+            "../public/images/produits",
             `${sanitizedTitre}.webp`
           );
 
@@ -242,7 +251,7 @@ exports.getProductById = async (req, res, next) => {
   }
 };
 
-// Pour récuperer les infos produits dans ma page products
+// Pour récuperer les infos produits dans ma page Produit
 exports.getProduits = async (req, res, next) => {
   try {
     /* Pour récupérer un paramètre d'url on utilise la propriété params de l'objet request */
@@ -353,15 +362,22 @@ exports.getProducts = async (req, res) => {
 
 // Middleware pour afficher la page "Détails d'un produit"
 exports.getProduct = async (req, res) => {
-  /* On récupère les informations issue du middleware getProductById en les stockant dans une variable */
+  // On récupère les informations du produit issues du middleware getProductById et on les stocke dans une variable.
+  // Si res.locals.detailsProduct est défini, on l'utilise, sinon on assigne null.
   const detailsProduct = res.locals.detailsProduct
     ? res.locals.detailsProduct
     : null;
-  const isConnected = req.session.isConnected ? req.session.isConnected : false;
-  res.status(200).render(
-    path.join(__dirname, "../views/management/products/detail-product.ejs"),
 
+  // On vérifie si l'utilisateur est connecté en utilisant req.session.isConnected.
+  // Si cela est défini, on utilise sa valeur, sinon on assigne false.
+  const isConnected = req.session.isConnected ? req.session.isConnected : false;
+
+  // Envoi d'une réponse HTTP avec le statut 200 (OK) et rendu de la page EJS pour afficher les détails du produit.
+  res.status(200).render(
+    // Construction du chemin vers le fichier template EJS.
+    path.join(__dirname, "../views/management/products/detail-product.ejs"),
     {
+      // Passage des données - état de connexion et détails du produit - au template EJS.
       isConnected,
       detailsProduct,
     }
@@ -370,21 +386,23 @@ exports.getProduct = async (req, res) => {
 
 // Middleware pour afficher la page "Modifier un produit"
 exports.modifyProduct = async (req, res) => {
+  // Récupère les détails du produit à partir de res.locals.detailsProduct, ou renvoie null si non défini.
   const detailsProduct = res.locals.detailsProduct
     ? res.locals.detailsProduct
     : null;
-
+  // Récupère le message de succès de la mise à jour du produit à partir de req.session.successUpdateProduct, ou renvoie null si non défini.
   const successUpdateProduct = req.session.successUpdateProduct
     ? req.session.successUpdateProduct
     : null;
-
+  // Récupère l'état de connexion à partir de req.session.isConnected, ou renvoie false si non défini.
   const isConnected = req.session.isConnected ? req.session.isConnected : false;
-
+  // Renvoie une réponse HTTP 200 et rend la page "update-product.ejs" en utilisant le moteur de rendu EJS.
   res
     .status(200)
     .render(
       path.join(__dirname, `../views/management/products/update-product.ejs`),
       {
+        // Passe les données suivantes à la page comme variables locales.
         detailsProduct,
         successUpdateProduct,
         isConnected,
@@ -395,20 +413,25 @@ exports.modifyProduct = async (req, res) => {
 // Middleware de validation du formulaire de la page "Modifier un produit"
 exports.updateProduct = async (req, res) => {
   try {
-    /* On vérifie et sécurise les données qui sont envoyées */
+    // On vérifie et sécurise les données qui sont envoyées.
     verifInputsProduct(req, res);
-    // On vérifie si le produit existe
+
+    // On vérifie si le produit existe en utilisant l'ID fourni dans les paramètres de la requête.
     await findProductById(req.params.id)
       .then((Product) => {
-        // S'il existe il se met a jour
+        // Si le produit existe, il est mis à jour.
+        // Cette fonction n'est pas définie ici, mais elle doit gérer la mise à jour du produit.
         refreshProduct(req, res);
       })
       .catch((error) => {
+        // Si une erreur survient lors de la recherche du produit, une réponse 404 est envoyée avec un message d'erreur.
         res
           .status(404)
           .json({ message: "Erreur recherche produit : " + error.message });
       });
   } catch (error) {
+    // Si une erreur survient dans le bloc try, elle est capturée ici.
+    // Un message d'erreur est enregistré et une réponse 500 est envoyée avec le message d'erreur.
     console.error(error.message);
     res
       .status(500)

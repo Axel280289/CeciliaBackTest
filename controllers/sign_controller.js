@@ -102,7 +102,7 @@ exports.signin = async (req, res) => {
   // Récupération de l'état de connexion de l'utilisateur (connecté ou non)
   const isConnected = req.session.isConnected ? req.session.isConnected : false;
   // Récupération d'un éventuel message d'erreur passé dans les paramètres de requête (query)
-  const errorMessage = req.query.error;
+  const error = req.query.error;
   // Si l'utilisateur est déjà connecté, redirection vers la page d'accueil
   if (isConnected) {
     res.status(300).redirect(`/`);
@@ -110,66 +110,55 @@ exports.signin = async (req, res) => {
     // Si l'utilisateur n'est pas connecté, rendu de la page de connexion avec les variables nécessaires
     res.status(200).render(path.join(__dirname, `../views/sign/signin.ejs`), {
       isConnected,
-      errorMessage,
+      error,
     });
   }
 };
 
 // Middleware de validation de formulaire de connexion
 exports.login = async (req, res) => {
+  console.log(req.body.email);
   try {
     // Recherche de l'utilisateur par son adresse e-mail
-    await findUserByMail(req)
-      .then((user) => {
-        if (user) {
-          // Si un utilisateur correspondant est trouvé, comparer le mot de passe fourni avec celui enregistré
-          bcrypt
-            .compare(req.body.password, user.password)
-            .then((compared) => {
-              if (compared) {
-                // Si la comparaison est réussie (mot de passe correct), initialiser les sessions utilisateur
-                req.session.userConnected = `Bienvenue ${user.lastname} ${user.firstname}`;
-                req.session.isConnected = true;
-                // Créer un token JWT pour l'authentification
-                const token = jwt.sign(
-                  { userId: user._id },
-                  process.env.SECRET_KEY_TOKEN,
-                  { expiresIn: "7d" }
-                );
-                // Création et envoi d'un cookie contenant le token JWT
-                res.cookie("token", token, {
-                  httpOnly: true,
-                  secure: true,
-                  maxAge: 604800000, // Durée de vie du cookie en millisecondes (7 jours)
-                });
-                // Redirection de l'utilisateur vers la page d'accueil après une connexion réussie
-                res.status(200).redirect("/");
-              } else {
-                // Si le mot de passe ne correspond pas, rediriger vers la page de connexion avec un message d'erreur
-                res
-                  .status(200)
-                  .redirect(
-                    "/signin?error=Utilisateur ou mot de passe incorrect !"
-                  );
-              }
-            })
-            .catch((error) => {
-              // Gestion des erreurs lors de la comparaison des mots de passe
-              console.log("Erreur lors de la comparaison :", error);
-              res.status(500).send("Erreur interne du serveur");
-            });
-        } else {
-          // Si aucun utilisateur correspondant n'est trouvé, rediriger vers la page de connexion
-          res
-            .status(200)
-            .redirect("/signin?error=Utilisateur ou mot de passe incorrect ");
-        }
-      })
-      .catch((error) => {
-        // Gestion des erreurs lors de la recherche de l'utilisateur
-        console.log("Erreur lors de la recherche de l’utilisateur :", error);
-        res.status(404).send("Utilisateur non trouvé");
-      });
+    await findUserByMail(req).then((user) => {
+      if (user) {
+        // Si un utilisateur correspondant est trouvé, comparer le mot de passe fourni avec celui enregistré
+        bcrypt
+          .compare(req.body.password, user.password)
+          .then((compared) => {
+            if (compared) {
+              // Si la comparaison est réussie (mot de passe correct), initialiser les sessions utilisateur
+              req.session.userConnected = `Bienvenue ${user.lastname} ${user.firstname}`;
+              req.session.isConnected = true;
+              // Créer un token JWT pour l'authentification
+              const token = jwt.sign(
+                { userId: user._id },
+                process.env.SECRET_KEY_TOKEN,
+                { expiresIn: "7d" }
+              );
+              // Création et envoi d'un cookie contenant le token JWT
+              res.cookie("token", token, {
+                httpOnly: true,
+                secure: true,
+                maxAge: 604800000, // Durée de vie du cookie en millisecondes (7 jours)
+              });
+              // Redirection de l'utilisateur vers la page d'accueil après une connexion réussie
+              res.status(200).redirect("/admin");
+            } else {
+              // Si le mot de passe ne correspond pas, rediriger vers la page de connexion avec un message d'erreur
+              res.status(200).redirect("/signin?error=0");
+            }
+          })
+          .catch((error) => {
+            // Gestion des erreurs lors de la comparaison des mots de passe
+            console.log("Erreur lors de la comparaison :", error);
+            res.status(500).send("Erreur interne du serveur");
+          });
+      } else {
+        // Si aucun utilisateur correspondant n'est pas trouvé, rediriger vers la page de connexion
+        res.status(200).redirect("/signin?error=1 ");
+      }
+    });
   } catch (error) {
     // Gestion des erreurs globales du bloc try-catch
     console.log("Erreur du bloc try-catch :", error);
@@ -203,7 +192,7 @@ exports.disconnect = async (req, res, next) => {
     // Suppression de la session utilisateur
     req.session.destroy();
     // Redirection vers la page d'accueil après la déconnexion
-    res.redirect("/");
+    res.redirect("/signin");
   } catch (error) {
     // Gestion des erreurs en cas d'échec de la déconnexion
     res.status(500).send("Erreur Inscription Try " + error.message);

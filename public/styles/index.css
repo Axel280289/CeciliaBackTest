@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5 {
 }
 
 body {
-  background: url(/images/Salon-de-coiffure.webp) no-repeat center;
+  background: url(/images/front/Salon-de-coiffure.webp) no-repeat center;
   background-size: cover;
   height: 100%;
 }
@@ -224,22 +224,22 @@ button:hover {
 }
 
 .container-accueil article:nth-of-type(1) {
-  background: url(/images/nouveauDecor.webp) center no-repeat;
+  background: url(/images/front/nouveauDecor.webp) center no-repeat;
   background-size: cover;
 }
 
 .container-accueil article:nth-child(2) {
-  background: url(/images/coiffureP.webp) center no-repeat;
+  background: url(/images/front/coiffureP.webp) center no-repeat;
   background-size: cover;
 }
 
 .container-accueil article:nth-child(3) {
-  background: url(/images/KerastaseBG.webp) center no-repeat;
+  background: url(/images/front/KerastaseBG.webp) center no-repeat;
   background-size: cover;
 }
 
 .container-accueil article:nth-child(4) {
-  background: url(/images/contacter-nous.webp) center no-repeat;
+  background: url(/images/front/contacter-nous.webp) center no-repeat;
   background-size: cover;
 }
 
@@ -839,22 +839,22 @@ label {
 }
 
 .catProduitContainer article:nth-of-type(1) {
-  background: url(/images/shampoing.webp) center no-repeat;
+  background: url(/images/front/shampoing.webp) center no-repeat;
   background-size: cover;
 }
 
 .catProduitContainer article:nth-of-type(2) {
-  background: url(/images/apresShampoings.webp) center no-repeat;
+  background: url(/images/front/apresShampoings.webp) center no-repeat;
   background-size: cover;
 }
 
 .catProduitContainer article:nth-of-type(3) {
-  background: url(/images/nosHuiles.webp) center no-repeat;
+  background: url(/images/front/nosHuiles.webp) center no-repeat;
   background-size: cover;
 }
 
 .catProduitContainer article:nth-of-type(4) {
-  background: url(/images/soins.webp) center no-repeat;
+  background: url(/images/front/soins.webp) center no-repeat;
   background-size: cover;
 }
 
@@ -974,17 +974,17 @@ label {
 }
 
 .catContainer article:nth-of-type(1) {
-  background: url(/images/coupesEnfants.webp) center no-repeat;
+  background: url(/images/front/coupesEnfants.webp) center no-repeat;
   background-size: cover;
 }
 
 .catContainer article:nth-of-type(2) {
-  background: url(/images/coupesHommes.webp) center no-repeat;
+  background: url(/images/front/coupesHommes.webp) center no-repeat;
   background-size: cover;
 }
 
 .catContainer article:nth-of-type(3) {
-  background: url(/images/femme.webp) center no-repeat;
+  background: url(/images/front/femme.webp) center no-repeat;
   background-size: cover;
 }
 

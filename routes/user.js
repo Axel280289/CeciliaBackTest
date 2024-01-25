@@ -1,6 +1,7 @@
 // Importation du framework Express et création d'un router.
 const express = require("express");
 const router = express.Router();
+const xssFilters = require("xss-filters");
 // Importation des contrôleurs pour gérer les actions spécifiques liées aux utilisateurs.
 const {
   getUsers,
@@ -20,7 +21,23 @@ const { verifUser } = require("../middlewares/verifUser");
 // Utilise les middlewares pour authentification et vérification des droits d'utilisateur.
 router.get("/users/create", authMiddleware, verifUser, addUser);
 // Route POST pour le traitement du formulaire de création d'un utilisateur.
-router.post("/users/create/add", authMiddleware, verifUser, createUser);
+router.post(
+  "/users/create/add",
+  authMiddleware,
+  verifUser,
+  (req, res, next) => {
+    // Appliquer xssFilters sur les champs de saisie
+    req.body.email = xssFilters.inHTMLData(req.body.email);
+    req.body.password = xssFilters.inHTMLData(req.body.password);
+    req.body.lastname = xssFilters.inHTMLData(req.body.lastname);
+    req.body.firstname = xssFilters.inHTMLData(req.body.firstname);
+
+    console.log(req.body.lastname);
+    // Continuez avec le middleware suivant
+    next();
+  },
+  createUser
+);
 // Route GET pour afficher la liste des utilisateurs.
 router.get("/users", authMiddleware, verifUser, getUsers);
 // Route GET pour afficher les informations d'un utilisateur spécifique.
